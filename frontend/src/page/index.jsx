@@ -4,7 +4,6 @@ import heroVideo from "../assets/hero.mp4";
 import star from "../assets/star.png";
 import trophy from "../assets/trophy.png";
 import diamond from "../assets/diamond.png";
-import computerchip from "../assets/computer-chip.png";
 import graduated from "../assets/graduated.png";
 import coding from "../assets/coding.png";
 import TopMentors from "../components/TopMentors";
