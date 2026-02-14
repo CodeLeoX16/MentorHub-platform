@@ -19,18 +19,20 @@ Screenshots / Demo images
   - docs/screenshot-3-payment.png — Payment modal (UPI QR & options)
   - docs/screenshot-4-confirmation-email.png — Payment confirmation email
 
-Hero / Landing page  
-![Hero / Landing page](<img width="1901" height="1071" alt="Screenshot 2026-02-14 160224" src="https://github.com/user-attachments/assets/1bf310b9-24b4-414e-9bf5-6aeb05b8534f" />
-)
+## Screenshots
 
-Mentor dashboard — Services  
-![Mentor dashboard — Services](docs/screenshot-2-services.png)
+### Hero / Landing page
+![Hero / Landing page](https://github.com/user-attachments/assets/1bf310b9-24b4-414e-9bf5-6aeb05b8534f)
 
-Payment modal — UPI QR and options  
-![Payment modal — UPI QR and options](docs/screenshot-3-payment.png)
+### Mentor dashboard — Services
+![Mentor dashboard — Services](https://github.com/user-attachments/assets/b18c2d2c-f66a-4b75-9685-c6a84f21e395)
 
-Payment confirmation email (meeting link & details)  
-![Payment confirmation email](docs/screenshot-4-confirmation-email.png)
+### Payment modal — UPI QR and options
+![Payment modal — UPI QR and options](https://github.com/user-attachments/assets/e5360644-b66d-44fc-9757-d5899374a40f)
+
+### Payment confirmation email (meeting link & details)
+![Payment confirmation email](https://github.com/user-attachments/assets/ececfb75-3edb-4407-ae8e-1e8a77ec6322)
+
 
 Why this project
 ----------------
