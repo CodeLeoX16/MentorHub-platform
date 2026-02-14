@@ -12,12 +12,7 @@ Demo / Quick Preview
 --------------------
 Live demo: https://mentorhub-platform-frontend2.onrender.com
 
-Screenshots / Demo images
-- Place these image files in `docs/` (recommended filenames):
-  - docs/screenshot-1-hero.png — Hero / Landing page
-  - docs/screenshot-2-services.png — Mentor dashboard (Services list)
-  - docs/screenshot-3-payment.png — Payment modal (UPI QR & options)
-  - docs/screenshot-4-confirmation-email.png — Payment confirmation email
+
 
 ## Screenshots
 
