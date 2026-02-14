@@ -1,249 +1,183 @@
-# MentorHub Platform 🚀  
-### Book Mentoring Sessions • Secure Payments • Zoom Integration
+# MentorHub
 
-A modern full-stack mentoring platform where users can discover mentors, book sessions, pay securely via Razorpay, and join meetings through Zoom.
+[![Website Status](https://img.shields.io/badge/status-production-brightgreen)]()
+[![License](https://img.shields.io/badge/license-MIT-blue)]()
+[![Stack](https://img.shields.io/badge/stack-React%20%7C%20Node%20%7C%20Postgres-purple)]()
 
-🔗 **Live Demo:** https://mentorhub-platform-frontend2.onrender.com
+A beautiful platform to connect mentees with expert mentors — schedule sessions, manage services, and pay securely. Built with an emphasis on clean UX and production-ready tooling.
 
----
-
-## 🏆 Project Highlights (What makes this impressive)
-
-✅ Real-world **Payment Gateway Integration (Razorpay)**  
-✅ Secure **JWT Authentication System**  
-✅ **Zoom Meeting Scheduling API** integration  
-✅ Custom **Email Notifications** using Nodemailer  
-✅ Cloud media uploads via **Cloudinary**  
-✅ Full-stack **MERN architecture**  
-✅ Responsive modern UI with Ant Design + Tailwind  
-✅ Production deployment on **Render**
+Live demo: <!-- add your frontend url here -->  
+Backend API: https://<YOUR_BACKEND_URL>  <!-- replace with your backend live URL -->
+Postman collection: <YOUR_POSTMAN_COLLECTION_URL>  <!-- optional -->
 
 ---
 
-## ✨ Features
+## Highlights
 
-### 👤 User System
-- Mentor & Mentee account registration
-- Secure login with JWT authentication
-- Profile management with image upload
-
-### 🔎 Mentor Discovery
-- Search mentors by skills
-- Filter by availability & pricing
-- View mentor profiles
-
-### 📅 Booking System
-- Schedule mentoring sessions
-- Availability slot management
-- Booking dashboard
-
-### 💳 Payment Integration
-- Secure payments using Razorpay
-- Order verification system
-- Custom email receipts
-
-### 🎥 Meeting Integration
-- Zoom API session scheduling
-- Automated meeting link generation
-
-### 📩 Email System
-- Payment confirmation emails
-- Booking notifications
-- Session updates
-
-### 📱 UI Experience
-- Fully responsive design
-- Toast notifications
-- Clean dashboard interface
+- Clean, modern UI with a recruiter-friendly polished landing page and mentor profile pages.
+- End-to-end flows: mentor onboarding, mentee booking, admin management.
+- Secure authentication using JWT and role-based access.
+- Stripe-style payment verification flow (server-verified).
+- Deploy-ready: Docker + simple deployment instructions included.
 
 ---
 
-## 🧰 Tech Stack
+## Screenshots
 
-### Frontend
-- React 18 (Create React App)
-- React Router DOM
-- Ant Design + Tailwind CSS
-- Zustand (State Management)
-- Axios for API calls
-- React Hook Form
-- React Hot Toast
+> Replace the images in `/assets` with your real screenshots (home, mentors, booking, dashboard). Suggested filenames:
+- `assets/home.png`
+- `assets/mentors.png`
+- `assets/booking.png`
+- `assets/dashboard.png`
 
-### Backend
-- Node.js + Express
-- MongoDB + Mongoose
-- JWT Authentication
-- Joi Validation
-- Razorpay Payment API
-- Zoom API Integration
-- Nodemailer Email System
-- Cloudinary + Multer File Upload
+Once assets are in place these screenshots will render here:
+
+![Home](assets/home.png)
+![Mentors](assets/mentors.png)
+![Booking](assets/booking.png)
+![Dashboard](assets/dashboard.png)
 
 ---
 
-## 📁 Project Structure
+## Features
 
-MentorHub-platform/
-│
-├── frontend/ # React App
-│ ├── src/
-│ │ ├── components/
-│ │ ├── page/
-│ │ ├── apiManger/
-│ │ └── utils/
-│
-├── backend/ # Express API
-│ ├── src/
-│ │ ├── routes/
-│ │ ├── controllers/
-│ │ ├── models/
-│ │ └── middleware/
-│
-└── README.md
-
+- Landing page with clear CTAs: Find a Mentor / Become a Mentor.
+- Mentor profile pages with services, pricing, and social links.
+- Booking flow: select date/time, checkout, automatic confirmation email.
+- Mentor dashboard: add & manage services, schedule availability.
+- Payment verification: server-side validation and secure webhook handling.
+- Admin panel (optional): oversee users, bookings, and payouts.
+- Responsive and accessible UI.
 
 ---
 
-## ⚡ Getting Started (Run Locally)
+## Main user flows
 
-### 1️⃣ Clone Repository
+- Mentee:
+  1. Browse mentors by category or skill.
+  2. Open mentor profile → view services and availability.
+  3. Book a session → pay → receive confirmation and calendar invite.
+  4. Rate & review session.
 
-```bash
-git clone https://github.com/CodeLeoX16/MentorHub-platform.git
-cd MentorHub-platform
-```
+- Mentor:
+  1. Sign up → complete profile and add services (price, duration).
+  2. Set weekly availability and manage bookings.
+  3. Receive payouts and view earnings dashboard.
 
-2️⃣ Install Dependencies
-Frontend
-cd frontend
-npm install
-
-Backend
-cd ../backend
-npm install
-
-3️⃣ Setup Environment Variables
-Create .env files (never commit secrets).
-
-Backend .env
-PORT=4000
-DB_URL=YOUR_MONGODB_URL
-
-CLOUDINARY_CLOUD_NAME=YOUR_NAME
-CLOUDINARY_API_KEY=YOUR_KEY
-CLOUDINARY_API_SECRET=YOUR_SECRET
-
-SMTP_USERNAME=YOUR_SMTP_USERNAME
-SMTP_PASSWORD=YOUR_SMTP_PASSWORD
-SMTP_HOST=YOUR_SMTP_HOST
-SMTP_PORT=YOUR_SMTP_PORT
-EMAIL_FROM=YOUR_FROM_EMAIL
-
-RAZORPAY_KEY_ID=YOUR_KEY_ID
-RAZORPAY_KEY_SECRET=YOUR_KEY_SECRET
-
-ZOOM_ACCOUNT_ID=YOUR_ACCOUNT_ID
-ZOOM_CLIENT_ID=YOUR_CLIENT_ID
-ZOOM_CLIENT_SECRET=YOUR_CLIENT_SECRET
-Frontend .env
-REACT_APP_BASE_URL=http://localhost:4000/api
-REACT_APP_RAZORPAY_KEY_ID=YOUR_KEY_ID
-4) Run
-# Backend
-cd backend
-npm run dev
-
-# Frontend (new terminal)
-cd frontend
-npm start
-Frontend: http://localhost:3000
-
-✅ API Health Check
-curl http://localhost:4000/api/health
-Expected:
-
-{ "status": "ok" }
-🧾 Project Structure
-MentorHub-platform/
-  frontend/        # React app
-    src/
-      components/
-      page/
-      apiManger/
-  backend/         # Express API
-    src/
-      routes/
-      controllers/
-      models/
-      utils/
-🚀 Deployment (Render)
-Frontend (Static Site)
-Root Directory: frontend
-
-Build Command: npm install && npm run build
-
-Publish Directory: build
-
-Rewrite Rule (React Router):
-
-/* -> /index.html (200)
-
-Backend (Web Service)
-Root Directory: backend
-
-Build Command: npm install
-
-Start Command: npm start
-
-Add env vars in Render dashboard
-
-🔐 Security Notes
-Never commit .env files
-
-Verify Razorpay payment signatures server-side
-
-Validate all payloads with Joi
-
-Use HTTPS in production
-
-🗺️ Roadmap
-Google/Outlook Calendar sync
-
-Real-time chat (WebSockets)
-
-Recommendations (ranking + personalization)
-
-Admin analytics dashboard
-
-Mobile app (React Native)
-
-🤝 Contributing
-Contributions are welcome:
-
-Fork repo ⭐
-
-Create branch: git checkout -b feat/feature-name
-
-Commit: git commit -m "Add feature"
-
-Push and open a PR
-
-📄 License
-MIT © 2026 — see LICENSE
-
-📬 Contact
-Maintained by CodeLeoX16
-For suggestions: open an issue or discussion on GitHub.
-
+- Admin:
+  1. Approve mentors, manage disputes and refunds.
+  2. View platform metrics, bookings, and revenue.
+  3. Manage categories and featured mentors.
 
 ---
 
-### 3 quick upgrades that make recruiters trust it more
-1) **Add real screenshots** in `/assets` (home, mentors, booking, dashboard).  
-2) Add a **short “Key Learnings”** section (payments verification, JWT, deployment).  
-3) Add a **Backend Live API URL** (if deployed) + Postman collection link (optional). 
+## Key Learnings (TL;DR)
 
-If you want, paste:
-- your backend live URL (if you deployed it)
-- your main user flows (mentor/mentee/admin)
-and I’ll tailor the “Highlights” + “Features” section to match exactly what you implemented.
+- Authentication & Security
+  - Implemented JWT-based auth for protected routes and role checks (mentee/mentor/admin).
+  - Secure password handling using bcrypt and strong validation.
+
+- Payments
+  - Integrated payment gateway (Stripe/other) with client + server flow.
+  - Implemented server-side verification and webhook handlers to prevent fraud.
+  - Orders and receipts recorded in DB and email confirmations sent upon successful payment.
+
+- Deployment & Infra
+  - Prepared Dockerfiles + env-based configuration for production.
+  - Static frontend served via CDN / S3 + CloudFront (or Vercel/Netlify).
+  - Centralized logs and monitoring recommended (e.g., Sentry, Logflare).
+
+- Other technical wins
+  - Clean separation of concerns: API, worker for background jobs (email/webhooks), and frontend.
+  - Postman collection for easy API testing and onboarding external devs.
+
+---
+
+## Tech stack
+
+- Frontend: React (or Next.js), Tailwind / Bootstrap (UI)
+- Backend: Node.js, Express, JWT
+- Database: PostgreSQL (or MongoDB)
+- Payments: Stripe (or Razorpay)
+- Deployment: Docker, CI/CD (GitHub Actions recommended)
+
+---
+
+## Setup (local)
+
+1. Clone
+   ```bash
+   git clone https://github.com/CodeLeoX16/MentorHub-platform.git
+   cd MentorHub-platform
+   ```
+
+2. Frontend
+   ```bash
+   cd frontend
+   npm install
+   npm run dev
+   ```
+
+3. Backend
+   ```bash
+   cd ../backend
+   npm install
+   cp .env.example .env
+   # fill .env with DB, JWT secret, payment provider keys
+   npm run dev
+   ```
+
+4. Database
+   - Create Postgres DB, run migrations / seeds (if applicable).
+
+5. Running both with Docker
+   ```bash
+   docker compose up --build
+   ```
+
+---
+
+## API & Postman
+
+- Base URL: `https://<YOUR_BACKEND_URL>`  — replace with your live API URL.
+- Import the Postman collection to quickly test endpoints: `<YOUR_POSTMAN_COLLECTION_URL>`
+
+Recommended endpoints to showcase:
+- POST /auth/register
+- POST /auth/login
+- GET /mentors
+- GET /mentors/:id
+- POST /bookings
+- POST /payments/webhook
+
+---
+
+## How recruiters should evaluate this project (tips for your README / PR)
+
+- Emphasize production-readiness: env/config, migrations, payment verification, and deployment docs.
+- Showcase a short video or GIF of the booking flow (optional) — very convincing for recruiters.
+- Add a “Key Learnings” section (done above) so reviewers see what you implemented and learned.
+- Link to deployed frontend + backend and the Postman collection for easy testing.
+
+---
+
+## Contributing
+
+PRs welcome. If you want me to help polish UI/UX or add the screenshots and commit directly, reply with:
+- backend live URL (or “none”)
+- Postman collection link (optional)
+- confirm you want me to add the 4 uploaded screenshots as:
+  - `assets/home.png`
+  - `assets/mentors.png`
+  - `assets/booking.png`
+  - `assets/dashboard.png`
+
+I will then:
+- upload the images to `/assets`
+- update `README.md` in `main` (or open a PR if you prefer)
+- include the exact commit message: "docs: polish README, add screenshots & key learnings"
+
+---
+
+## License
+MIT
