@@ -20,7 +20,8 @@ Screenshots / Demo images
   - docs/screenshot-4-confirmation-email.png — Payment confirmation email
 
 Hero / Landing page  
-![Hero / Landing page](docs/screenshot-1-hero.png)
+![Hero / Landing page](<img width="1901" height="1071" alt="Screenshot 2026-02-14 160224" src="https://github.com/user-attachments/assets/1bf310b9-24b4-414e-9bf5-6aeb05b8534f" />
+)
 
 Mentor dashboard — Services  
 ![Mentor dashboard — Services](docs/screenshot-2-services.png)
