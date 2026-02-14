@@ -1,71 +1,138 @@
-# MentorHub Platform
+# MentorHub Platform 🚀
 
-[Live Demo](https://mentorhub-platform-frontend2.onrender.com) • A modern platform to connect mentors and mentees
+[Live Demo](https://mentorhub-platform-frontend2.onrender.com) • A modern, friendly place to connect mentors and mentees
 
-![Live Demo](https://img.shields.io/badge/Live-Demo-Visit%20Now-brightgreen) <!-- replace with a badge service of your choice -->
+[![Live Demo](https://img.shields.io/badge/Live-Demo-Visit%20Now-brightgreen)](https://mentorhub-platform-frontend2.onrender.com) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE) [![Issues](https://img.shields.io/github/issues/CodeLeoX16/MentorHub-platform)](https://github.com/CodeLeoX16/MentorHub-platform/issues)  
 
 ---
 
-## Table of Contents
+Table of Contents
 - [About](#about)
-- [Live Demo](#live-demo)
+- [Demo & Screenshots](#demo--screenshots)
+- [Why MentorHub?](#why-mentorhub)
 - [Features](#features)
 - [Tech Stack](#tech-stack)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Install & Run](#install--run)
-  - [Environment Variables](#environment-variables)
+- [Environment (Quick reference)](#environment-quick-reference)
+- [Getting Started (Run locally)](#getting-started-run-locally)
 - [Usage](#usage)
 - [Project Structure](#project-structure)
+- [Testing & CI](#testing--ci)
 - [Contributing](#contributing)
 - [Roadmap](#roadmap)
 - [License](#license)
 - [Contact](#contact)
 
+---
+
 ## About
-MentorHub Platform is designed to make it easy for people to find, connect with, and learn from mentors in their field. It focuses on discoverability, scheduling, secure messaging, and feedback to create a reliable mentoring experience.
+MentorHub is a beautiful, easy-to-use platform built to help professionals, students, and hobbyists find and book time with experienced mentors. It focuses on discoverability, scheduling, secure communication, and continuous feedback — all built with developer-friendly tools so contributors can add features fast.
 
-## Live Demo
-Try it now: https://mentorhub-platform-frontend2.onrender.com
+## Demo & Screenshots
+Try the live demo: https://mentorhub-platform-frontend2.onrender.com
 
-(If the demo uses a deployed frontend only, include a link to the backend API docs or staging server here.)
+Include screenshots/GIFs to show the experience (upload images into `/assets` and reference them here):
+
+```markdown
+![Home Screen](./assets/home.png)
+![Booking Flow](./assets/booking.gif)
+```
+
+---
+
+## Why MentorHub?
+- Fast onboarding for mentors and mentees
+- Built-in scheduling integrations (Zoom)
+- Secure messaging and post-session feedback
+- Payments and bookings via Razorpay
+- Designed to be extensible for community contributors
+
+---
 
 ## Key Features
-- Create and manage mentor and mentee profiles
-- Search and filter mentors by skills, availability, and rating
-- Book and manage mentoring sessions (calendar integration)
-- Secure messaging between mentors and mentees
-- Session reviews and rating system
-- Responsive UI for desktop and mobile
+- ✨ Create and manage mentor and mentee profiles
+- 🔎 Search & filter mentors by skills, availability, and rating
+- 📆 Book and manage mentoring sessions (Zoom + calendar support)
+- 💬 Secure messaging between mentors and mentees
+- ⭐ Session reviews and rating system
+- 📱 Responsive UI for desktop and mobile
+
+---
 
 ## Tech Stack
-- Frontend: [Add your framework/library here — e.g., React, Next.js, Vue]
-- Backend: [Add your server/stack here — e.g., Node.js + Express, Django, Rails]
-- Database: [Add DB here — e.g., MongoDB, PostgreSQL]
-- Authentication: [Add method — e.g., JWT, OAuth]
-- Deployment: Render (frontend demo hosted at the live link)
 
-Replace the items above with your actual stack if you want a precise list.
+Frontend
+- React (Create React App, React 18)
+- React Router
+- Ant Design + Tailwind CSS utilities (for fast, consistent UI)
+- Axios for HTTP requests
+- Zustand for lightweight state management
+- React Hook Form, React Hot Toast, React Icons
+- Moment, React Modal
+- Testing: @testing-library/react & related libs
 
-## Getting Started
+Backend
+- Node.js + Express
+- MongoDB (Mongoose)
+- JWT authentication
+- Joi for validation
+- Payments: Razorpay
+- Scheduling: Zoom API integration
+- Emails: Nodemailer (SMTP)
+- Media: Cloudinary (via Multer uploads)
+- Utilities: cookie-parser, cors, dotenv, moment
+- Dev: nodemon
 
-### Prerequisites
-- Node.js >= 16 (if using Node)
-- npm or yarn
-- [Database installed or access to hosted DB] (e.g., MongoDB Atlas / PostgreSQL)
-- Any required API keys for third-party services (email, calendar, auth providers)
+---
 
-### Install & Run (example)
-These commands are examples — replace them with repo-specific commands if different.
+## Environment (Quick reference)
 
-1. Clone the repo
+Create a `.env` for the backend and (if needed) a `.env` for the frontend. Example values below — replace placeholders with real secrets.
+
+Backend (.env)
+```env
+PORT=<port number>
+DB_URL=<mongodb url>
+
+CLOUDINARY_CLOUD_NAME=<cloudinary cloud name>
+CLOUDINARY_API_KEY=<cloudinary api key>
+CLOUDINARY_API_SECRET=<cloudinary api secret>
+
+SMTP_USERNAME=<smtp username>
+SMTP_PASSWORD=<smtp password>
+EMAIL_FROM=<email from>
+SMTP_HOST=<smtp host>
+SMTP_PORT=<smtp port>
+
+RAZORPAY_KEY_ID=<razorpay key id>
+RAZORPAY_KEY_SECRET=<razorpay key secret>
+
+ZOOM_ACCOUNT_ID=<zoom account id>
+ZOOM_CLIENT_ID=<zoom client id>
+ZOOM_CLIENT_SECRET=<zoom client secret>
+```
+
+Frontend (.env)
+```env
+REACT_APP_BASE_URL=http://localhost:4000/api    # or your API URL
+REACT_APP_RAZORPAY_KEY_ID=<razorpay_key_id>
+```
+
+Security note: never commit `.env` files or secrets to the repo. Use GitHub Actions secrets / Render/Heroku environment settings for production.
+
+---
+
+## Getting Started — Run Locally
+
+These are example commands — adjust to your repo layout (monorepo vs single project).
+
+1. Clone
 ```bash
 git clone https://github.com/CodeLeoX16/MentorHub-platform.git
 cd MentorHub-platform
 ```
 
 2. Install dependencies
-- If project is monorepo with separate frontend/backend:
+- Monorepo (frontend + backend)
 ```bash
 # Frontend
 cd frontend
@@ -76,98 +143,140 @@ cd ../backend
 npm install
 ```
 
-- Or if single project:
+- Single project
 ```bash
 npm install
 ```
 
-3. Configure environment variables (see next section)
+3. Configure environment variables
+- Create `.env` files as shown above in backend and frontend folders.
 
-4. Run locally
+4. Start servers
 ```bash
-# Start backend (example)
-cd backend
-npm run dev
-
-# Start frontend (example)
-cd ../frontend
-npm run dev
-```
-
-Notes
-- Replace `npm run dev` with your project's start command (`npm start`, `yarn dev`, etc.).
-- If you have Docker setup, add `docker-compose up --build` instructions here.
-
-### Environment Variables
-Create a `.env` file in the backend and frontend (if needed) with keys similar to:
-
-```
 # Backend
-PORT=4000
-DATABASE_URL=<your-database-url>
-JWT_SECRET=<your-jwt-secret>
-EMAIL_SERVICE_API_KEY=<api-key>
+cd backend
+npm run dev        # or `npm start` depending on your scripts
 
 # Frontend
-REACT_APP_API_URL=http://localhost:4000/api
+cd ../frontend
+npm run start      # CRA dev server, usually opens at http://localhost:3000
 ```
 
-Replace the keys with actual environment variables your app expects.
+Optional: Docker
+- If you prefer Docker, add a `docker-compose.yml` to orchestrate MongoDB, backend, and frontend and run:
+```bash
+docker-compose up --build
+```
 
-## Usage
-- Sign up as a mentor or mentee.
-- Complete your profile with skills, availability, and a short bio.
-- Search for mentors by skill or browse recommended mentors.
-- Request or book sessions, chat with your mentor, and leave a review after each session.
+---
 
-Include screenshots or gifs of the UI here — add images to `/assets` then reference them:
+## Quick API check
+After backend starts (e.g. http://localhost:4000):
+```bash
+curl http://localhost:4000/api/health
+# -> { "status": "ok" } (example)
+```
 
-![Home Screen](<img width="1893" height="1079" alt="Screenshot 2026-02-14 122135" src="https://github.com/user-attachments/assets/05b5e1d3-2809-4742-9fc9-502e51dea4d1" />
-) <!-- optional: add actual screenshot file -->
+---
+
+## Usage (User flows)
+- Sign up as mentor or mentee
+- Mentor: add expertise, hourly rates, available slots, profile picture
+- Mentee: browse mentors, pick time, pay via Razorpay, join session (Zoom), leave review
+- Messaging: contact mentor pre/post booking
+- Admins: view bookings, manage users, handle disputes
+
+---
 
 ## Project Structure (example)
 ```
-/frontend       # UI app (React / Next)
- /src
-/backend        # API server (Node / Express)
- /src
- /models
- /routes
- /controllers
+/frontend       # React app (Create React App)
+  /src
+    /components
+    /pages
+    /services
+/backend        # Express API
+  /src
+    /models
+    /routes
+    /controllers
+    /utils
 ```
-Update this section with the real layout of your repository.
+Update this section to reflect the true layout if necessary.
 
-## Contributing
-We welcome contributions! Please follow these steps:
+---
 
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feat/your-feature`
-3. Commit your changes: `git commit -m "Add feature"`
-4. Push to the branch: `git push origin feat/your-feature`
-5. Open a Pull Request describing your changes
+## Testing & CI
+- Frontend: @testing-library/react
+- Backend: Jest / supertest (if present)
+- Suggested: add GitHub Actions for:
+  - lint
+  - test
+  - build
+  - deploy (Render/Heroku)
 
-Be sure to follow the code style used in the project and add tests where applicable.
+Example CI badges (add to top once configured):
+```markdown
+[![Tests](https://img.shields.io/github/actions/workflow/status/CodeLeoX16/MentorHub-platform/ci.yml?branch=main)](...)
+```
+
+---
+
+## Contributing — We ♥ contributions
+Want to help build MentorHub? Great! Follow these steps:
+
+1. Star the repo ⭐ and fork it
+2. Create a descriptive branch: `git checkout -b feat/booking-improvements`
+3. Commit logically with meaningful messages
+4. Push the branch: `git push origin feat/booking-improvements`
+5. Open a Pull Request and describe:
+   - What you changed
+   - Why it helps
+   - Screenshots or recordings of UI changes
+6. Follow code style, add tests where applicable
+
+Helpful contribution ideas:
+- Improve the matching algorithm
+- Add calendar sync (Google/Outlook)
+- Improve tests & CI
+- Add mobile-friendly styling / PWA support
+- Add i18n support
+
+Code of Conduct
+- Please follow a friendly Code of Conduct — file `CODE_OF_CONDUCT.md` (suggested)
+
+Maintainer Tips
+- Use issue templates and PR templates for faster reviews
+- Label beginner-friendly issues with `good first issue`
+
+---
 
 ## Roadmap
 Planned improvements:
-- Calendar sync (Google/Outlook)
-- Real-time notifications and websockets for chat
-- Advanced mentor matching algorithm
-- Mobile apps (iOS/Android)
+- Google / Outlook calendar sync
+- Real-time chat (WebSockets)
+- Advanced mentor recommendation engine
+- Mobile apps (React Native)
+- Organization / team accounts
 
-If you want, list specific issues or milestones and link to them here.
+Want to help implement any roadmap item? Open an issue or a draft PR and tag it with `help wanted`.
+
+---
 
 ## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+MIT © 2026 — See the [LICENSE](./LICENSE) file.
+
+---
 
 ## Contact
-Project maintained by CodeLeoX16 — reach out via GitHub discussions or open an issue.
+Maintained by CodeLeoX16 — open an issue, discussion, or contact via GitHub.
 
 ---
 
 If you'd like, I can:
-- Customize this README with exact commands, badges, and tech stack by inspecting your repository,
-- Add screenshots or a GIF (if you upload them), or
-- Create badges for CI, license, and repo stats automatically.
+- generate ready-to-paste GitHub Action CI badges and config,
+- create issue templates (bug/feature/good-first-issue),
+- add a PR template and Code of Conduct,
+- or scan the repo and fill in exact commands and structure for the README.
 
-Tell me which of these you'd like next and I’ll update the file.  
+Tell me which next step you want and I’ll prepare it.
