@@ -1,11 +1,8 @@
 import AxiosInstances from ".";
 
-const signup = (data) => {
-  return AxiosInstances.post("/auth/signup", data);
+const authApi = {
+  signup: (data) => AxiosInstances.post("/auth/signup", data),
+  signin: (data) => AxiosInstances.post("/auth/signin", data),
 };
 
-const signin = (data) => {
-  return AxiosInstances.post("/auth/signin", data);
-};
-
-export default { signup, signin };
+export default authApi;

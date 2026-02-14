@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import MentorCard from "./MentorCard";
 import mentorAPI from "../apiManger/mentor";
 import useMentorStore from "../store/mentors";
@@ -28,7 +28,7 @@ const TopMentors = () => {
     return selected; // Return the selected mentors
   };
 
-  const fetchAllMentors = async () => {
+  const fetchAllMentors = useCallback(async () => {
     setLoading(true);
     try {
       const response = await mentorAPI.getAllMentors();
@@ -41,11 +41,11 @@ const TopMentors = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [setMentorsData]);
 
   useEffect(() => {
     fetchAllMentors();
-  }, []);
+  }, [fetchAllMentors]);
 
   return (
     <div className="px-4 py-12 bg-gradient-to-b from-white to-gray-50 sm:px-6 lg:px-10">

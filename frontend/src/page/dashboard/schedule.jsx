@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Card, Button, TimePicker, message, Divider, Tag, DatePicker } from "antd";
 import moment from "moment";
 import Dashboard from "./dashboard";
@@ -35,7 +35,7 @@ const Schedule = () => {
     endTime: slot.endTime,
   });
 
-  const fetchAvailability = async () => {
+  const fetchAvailability = useCallback(async () => {
     setLoading(true);
     try {
       const res = await availabilityApi.getOwnAvailability();
@@ -59,11 +59,11 @@ const Schedule = () => {
       setHasExisting(false);
     }
     setLoading(false);
-  };
+  }, []);
 
   useEffect(() => {
     fetchAvailability();
-  }, []);
+  }, [fetchAvailability]);
 
   const onTimeChange = (day, value) => {
     if (!value || value.length !== 2) {

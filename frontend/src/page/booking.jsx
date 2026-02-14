@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Card, Button, Spin } from "antd";
 import { FaClock } from "react-icons/fa";
 import { AiOutlineArrowLeft } from "react-icons/ai";
@@ -13,30 +13,18 @@ import Layout from "../components/Layout";
 
 const Booking = () => {
   const navigate = useNavigate();
-  const { username, id } = useParams();
+  const { id } = useParams();
   const [serviceData, setServiceData] = useState(null);
   const [mentorAvailability, setMentorAvailability] = useState(null);
   const [availabilityError, setAvailabilityError] = useState(null);
   const [activeIndex, setActiveIndex] = useState(null);
   const [selectedSlot, setSelectedSlot] = useState(null);
-  const [loadingService, setLoadingService] = useState(false);
   const [loadingAvailability, setLoadingAvailability] = useState(false);
 
-  const getServiceData = async () => {
-    setLoadingService(true);
-    const res = await service.getServiceById(id);
-    setServiceData(res?.data?.service);
-    getMentorAvailability(
-      res?.data?.service?.mentor,
-      res?.data?.service?.duration
-    );
-    setLoadingService(false);
-  };
-
-  const getMentorAvailability = async (id, duration) => {
+  const getMentorAvailability = useCallback(async (mentorId, duration) => {
     setLoadingAvailability(true);
     try {
-      const res = await availability.getMentorAvailability(id, duration);
+      const res = await availability.getMentorAvailability(mentorId, duration);
       const avail = res?.data?.availability;
       if (Array.isArray(avail) && avail.length > 0) {
         setMentorAvailability(avail);
@@ -50,11 +38,20 @@ const Booking = () => {
       setAvailabilityError("Could not load availability. Please retry.");
     }
     setLoadingAvailability(false);
-  };
+  }, []);
+
+  const getServiceData = useCallback(async () => {
+    const res = await service.getServiceById(id);
+    setServiceData(res?.data?.service);
+    getMentorAvailability(
+      res?.data?.service?.mentor,
+      res?.data?.service?.duration
+    );
+  }, [getMentorAvailability, id]);
 
   useEffect(() => {
     getServiceData();
-  }, [id]);
+  }, [getServiceData]);
 
   const onBookServiceClick = async () => {
     const res = await booking.bookService({

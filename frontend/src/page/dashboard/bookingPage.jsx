@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Table, Button, Spin } from "antd";
 import moment from "moment";
 import Layout from "../../components/Layout";
@@ -11,7 +11,7 @@ const Booking = () => {
   const [activeTab, setActiveTab] = useState("upcoming"); // 'upcoming' or 'past'
   const { user } = useUserStore();
 
-  const fetchBookings = async () => {
+  const fetchBookings = useCallback(async () => {
     setLoading(true);
     try {
       const res =
@@ -23,11 +23,11 @@ const Booking = () => {
       setBookings([]);
     }
     setLoading(false);
-  };
+  }, [user?.role]);
 
   useEffect(() => {
     fetchBookings();
-  }, []);
+  }, [fetchBookings]);
 
   const handlePayNow = (bookingId) => {
     // handle payment logic for the booking
