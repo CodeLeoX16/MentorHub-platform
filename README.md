@@ -122,7 +122,8 @@ Replace the keys with actual environment variables your app expects.
 
 Include screenshots or gifs of the UI here — add images to `/assets` then reference them:
 
-![Home Screen](./assets/screenshot-home.png) <!-- optional: add actual screenshot file -->
+![Home Screen](<img width="1893" height="1079" alt="Screenshot 2026-02-14 122135" src="https://github.com/user-attachments/assets/39588c45-357e-4665-8685-2b5d099dbce0" />
+) <!-- optional: add actual screenshot file -->
 
 ## Project Structure (example)
 ```
