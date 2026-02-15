@@ -36,6 +36,7 @@ Developed a full-stack web application that connects mentors and mentees through
 
 ### Frontend Technologies
 - **Framework/Library:** React 18 (Create React App)
+  - *Note: While aware of modern alternatives like Vite and Next.js, this project uses CRA for its maturity and extensive ecosystem*
 - **Routing:** React Router v6
 - **UI Framework:** Ant Design 5.x
 - **Styling:** Tailwind CSS
