@@ -8,10 +8,10 @@
 ## Resume Bullet Points (Pick 2-4)
 
 ### Option A: Comprehensive (Best for Full-Stack Roles)
-- Architected and deployed a full-stack mentorship platform using MERN stack (MongoDB, Express.js, React 18, Node.js) enabling mentors and mentees to connect, schedule sessions, and manage relationships with 100+ active users
+- Architected and deployed a full-stack mentorship platform using MERN stack (MongoDB, Express.js, React 18, Node.js) enabling mentors and mentees to connect, schedule sessions, and manage mentorship relationships through an intuitive web interface
 - Integrated Razorpay payment gateway, Zoom API for meeting scheduling, Cloudinary media management, and Nodemailer for transactional emails with automated workflows
 - Implemented JWT-based authentication with role-based access control (RBAC), bcrypt password hashing, and Joi validation across 15+ RESTful API endpoints
-- Developed responsive React SPA using Ant Design, Tailwind CSS, and Zustand state management, deployed on Render with 99.9% uptime
+- Developed responsive React SPA using Ant Design, Tailwind CSS, and Zustand state management, deployed on Render and serving live users
 
 ### Option B: Technical (Best for Backend Roles)
 - Built scalable RESTful API using Node.js/Express with MongoDB/Mongoose, serving 15+ endpoints for user management, bookings, and payment processing with Joi validation
@@ -24,9 +24,9 @@
 - Implemented user authentication flows, booking interfaces, payment modals with Razorpay, and notification system using React Hot Toast
 
 ### Option D: Impact-Focused (Best for Product/Startup Roles)
-- Launched production mentorship platform connecting 100+ mentors and mentees with automated scheduling, payment processing, and session management
-- Reduced session setup time by 90% through Zoom API integration and automated email workflows, improving user experience and platform efficiency
-- Delivered full-stack MERN application with secure authentication, payment integration, and responsive design, currently serving live users
+- Launched production mentorship platform connecting mentors and mentees with automated scheduling, payment processing, and session management features
+- Significantly reduced session setup time through Zoom API integration and automated email workflows, improving user experience and platform efficiency
+- Delivered full-stack MERN application with secure authentication, payment integration, and responsive design, currently deployed and serving live users
 
 ---
 
@@ -49,17 +49,16 @@
 ## Quick Stats
 
 - **Tech Stack:** MERN (MongoDB, Express, React 18, Node.js)
-- **Live Users:** 100+ active users
+- **Deployment:** Production on Render serving live users
 - **API Endpoints:** 15+
 - **Third-Party Integrations:** 4 (Razorpay, Zoom, Cloudinary, Nodemailer)
-- **Deployment:** Production on Render
 - **License:** MIT Open Source
 
 ---
 
 ## Elevator Pitch (30 seconds)
 
-"I built MentorHub, a full-stack mentorship platform that connects mentors and mentees. Using the MERN stack, I integrated Razorpay for payments, Zoom for automated meeting scheduling, and email notifications. The platform features secure JWT authentication, responsive design, and is currently deployed on Render serving 100+ users. It handles the complete mentorship lifecycle from discovery to post-session feedback."
+"I built MentorHub, a full-stack mentorship platform that connects mentors and mentees. Using the MERN stack, I integrated Razorpay for payments, Zoom for automated meeting scheduling, and email notifications. The platform features secure JWT authentication, responsive design, and is currently deployed on Render serving live users. It handles the complete mentorship lifecycle from discovery to post-session feedback."
 
 ---
 

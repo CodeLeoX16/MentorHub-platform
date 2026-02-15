@@ -13,11 +13,11 @@ Developed a full-stack web application that connects mentors and mentees through
 ## Detailed Project Description (Resume Bullet Points)
 
 ### Option 1: Comprehensive Description (3-5 bullet points)
-- **Architected and deployed** a full-stack mentorship platform using MERN stack (MongoDB, Express.js, React 18, Node.js) enabling mentors and mentees to connect, schedule sessions, and manage mentorship relationships with 100+ active users
+- **Architected and deployed** a full-stack mentorship platform using MERN stack (MongoDB, Express.js, React 18, Node.js) enabling mentors and mentees to connect, schedule sessions, and manage mentorship relationships through an intuitive web interface
 - **Integrated multiple third-party APIs** including Razorpay for secure payment processing, Zoom API for automated meeting scheduling, Cloudinary for media management, and Nodemailer for transactional email notifications
 - **Implemented secure authentication and authorization** using JWT tokens, bcrypt password hashing, and cookie-based session management with role-based access control (RBAC) for mentor and mentee user types
 - **Designed and developed** a responsive, modern UI using React 18, Ant Design component library, Tailwind CSS, and Zustand for state management, ensuring cross-device compatibility and optimal user experience
-- **Deployed production application** on Render with CI/CD pipeline, implementing environment-based configuration management and achieving 99.9% uptime with live demo accessible at mentorhub-platform-frontend2.onrender.com
+- **Deployed production application** on Render with environment-based configuration management, currently serving live users with demo accessible at mentorhub-platform-frontend2.onrender.com
 
 ### Option 2: Technical Focus (3-4 bullet points)
 - **Built RESTful API backend** with Node.js/Express serving 15+ endpoints for user management, booking operations, service listings, and payment processing with Joi validation and error handling middleware
@@ -26,8 +26,8 @@ Developed a full-stack web application that connects mentors and mentees through
 - **Established MongoDB data models** using Mongoose ORM with schemas for users, bookings, services, and availability, implementing proper indexing and data validation for optimal query performance
 
 ### Option 3: Impact-Focused (2-3 bullet points)
-- **Launched production-ready mentorship platform** connecting 100+ mentors and mentees with features including profile management, skill-based matching, session scheduling, payment processing, and resource sharing
-- **Streamlined mentorship workflow** by integrating Zoom API for automated meeting creation, Razorpay for payment processing, and email notifications, reducing session setup time by 90%
+- **Launched production-ready mentorship platform** connecting mentors and mentees with features including profile management, skill-based matching, session scheduling, payment processing, and resource sharing
+- **Streamlined mentorship workflow** by integrating Zoom API for automated meeting creation, Razorpay for payment processing, and email notifications, significantly reducing manual session setup time
 - **Delivered comprehensive full-stack solution** using modern web technologies (MERN stack) with secure authentication, responsive design, and third-party integrations, currently serving live users in production
 
 ---
@@ -104,7 +104,7 @@ Developed a full-stack web application that connects mentors and mentees through
 
 ---
 
-## Metrics & Impact
+## Metrics & Technical Specifications
 
 - **Live Demo:** Deployed and accessible at https://mentorhub-platform-frontend2.onrender.com
 - **Codebase:** Open-source project with MIT license on GitHub
@@ -127,9 +127,9 @@ Developed a full-stack web application that connects mentors and mentees through
 
 Choose one of these for your resume project listing:
 
-1. **MentorHub Platform** - Full-stack MERN application connecting mentors and mentees with integrated payment processing (Razorpay), automated scheduling (Zoom API), and email notifications. Deployed on Render with 100+ active users.
+1. **MentorHub Platform** - Full-stack MERN application connecting mentors and mentees with integrated payment processing (Razorpay), automated scheduling (Zoom API), and email notifications. Deployed on Render serving live users.
 
-2. **MentorHub Platform** - Developed production-ready mentorship management system using React, Node.js, Express, and MongoDB with JWT authentication, Razorpay payments, Zoom integration, and responsive UI serving live users.
+2. **MentorHub Platform** - Developed production-ready mentorship management system using React, Node.js, Express, and MongoDB with JWT authentication, Razorpay payments, Zoom integration, and responsive UI available in production.
 
 3. **MentorHub Platform** - Built and deployed scalable mentorship platform featuring user authentication, payment gateway integration, automated meeting scheduling, and email notifications using MERN stack and third-party APIs.
 
@@ -173,7 +173,7 @@ When discussing this project in interviews, emphasize:
 
 **Q: Tell me about a challenging project you've worked on.**
 
-"I developed MentorHub, a full-stack mentorship platform using the MERN stack that's currently serving live users. One of the main challenges was integrating multiple third-party services - Razorpay for payments, Zoom for automated meeting scheduling, and Cloudinary for media management - while maintaining a smooth user experience. I implemented a robust webhook system to handle payment confirmations and automatically generate Zoom meeting links, which reduced session setup time from 10 minutes to under 30 seconds. The platform now handles the entire mentorship lifecycle from discovery to post-session feedback."
+"I developed MentorHub, a full-stack mentorship platform using the MERN stack that's currently deployed in production. One of the main challenges was integrating multiple third-party services - Razorpay for payments, Zoom for automated meeting scheduling, and Cloudinary for media management - while maintaining a smooth user experience. I implemented a robust webhook system to handle payment confirmations and automatically generate Zoom meeting links, which significantly reduced manual session setup time. The platform now handles the entire mentorship lifecycle from discovery to post-session feedback."
 
 **Q: What's your experience with React?**
 
