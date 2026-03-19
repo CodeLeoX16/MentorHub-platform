@@ -1,60 +1,222 @@
-## MentorHub Platform
+# MentorHub Platform
 
-Full-stack mentorship marketplace with mentor discovery, bookings, availability management, and Razorpay-backed payments.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![Live Demo](https://img.shields.io/badge/demo-online-brightgreen)](https://mentorhub-platform-frontend2.onrender.com)
+[![Stars](https://img.shields.io/github/stars/CodeLeoX16/MentorHub-platform?style=social)](https://github.com/CodeLeoX16/MentorHub-platform/stargazers)
 
-### Stack
-- Frontend: React (CRA), React Router, Ant Design, Tailwind utilities, Axios, Zustand state
-- Backend: Node/Express, MongoDB/Mongoose, JWT auth, Cloudinary uploads, Razorpay payments, Zoom scheduling, Nodemailer (SMTP)
-- Deployment: Render (backend service + frontend static site)
+TL;DR
+-----
+MentorHub connects mentors and mentees with scheduling, session notes, resource sharing, and simple matching. Try the live demo: https://mentorhub-platform-frontend2.onrender.com
 
-### Features
-- Auth (student/mentor), profile and services management
-- Mentor discovery, service details, booking with availability slots
-- Razorpay checkout and booking confirmation email/Zoom link
-- Dashboard: bookings, schedule/availability, payments view
+Demo / Quick Preview
+--------------------
+Live demo: https://mentorhub-platform-frontend2.onrender.com
 
-### Local Setup
-1) Prereqs: Node 18+ and MongoDB connection string.
-2) Backend
-   - `cd backend`
-   - `npm install`
-   - Copy [backend/.env.example](backend/.env.example) to `.env` and fill values (see Env Vars).
-   - Run: `npm run dev` (or `npm start`).
-3) Frontend
-   - `cd frontend`
-   - `npm install`
-   - Create `.env` with `REACT_APP_BASE_URL` pointing to your backend (e.g., `http://localhost:5000/v1`) and `REACT_APP_RAZORPAY_KEY_ID`.
-   - Run: `npm start` (CRA dev server on 3000).
 
-### Env Vars
-- Backend (.env):
-  - `PORT`, `DB_URL`
-  - `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`
-  - `SMTP_USERNAME`, `SMTP_PASSWORD`, `SMTP_HOST`, `SMTP_PORT`, `EMAIL_FROM`
-  - `RAZORPAY_KEY_ID`, `RAZORPAY_KEY_SECRET`, `RAZORPAY_WEBHOOK_SECRET`
-  - `ZOOM_ACCOUNT_ID`, `ZOOM_CLIENT_ID`, `ZOOM_CLIENT_SECRET`
-  - `JWT_ACCESS_SECRET`, `JWT_ACCESS_EXPIRATION_MINUTES`, `JWT_VERIFICATION_SECRET`, `JWT_VERIFICATION_EXPIRATION_MINUTES`
-- Frontend (.env):
-  - `REACT_APP_BASE_URL`
-  - `REACT_APP_RAZORPAY_KEY_ID`
 
-### Build/Deploy
-- Frontend (static site on Render):
-  - Root: `frontend`
-  - Build: `npm install && npm run build`
-  - Publish: `build`
-  - Redirect: `/* -> /index.html`
-  - Set `NODE_VERSION=18.20.4` (or 20.x LTS) and frontend env vars.
-- Backend (Render web service):
-  - Root: `backend`
-  - Build: `npm install`
-  - Start: `npm start`
-  - Set backend env vars above.
+## Screenshots
 
-### Useful Scripts
-- Backend: `npm run dev` (nodemon), `npm start`
-- Frontend: `npm start`, `npm run build`
+### Hero / Landing page
+![Hero / Landing page](https://github.com/user-attachments/assets/1bf310b9-24b4-414e-9bf5-6aeb05b8534f)
 
-### Notes
-- Payment history in the dashboard pulls live bookings; use the Refresh button to see latest statuses after payments.
-- Lint warnings are clean; CRA warning about `@babel/plugin-proposal-private-property-in-object` is addressed via devDependency.
+### Mentor dashboard — Services
+![Mentor dashboard — Services](https://github.com/user-attachments/assets/b18c2d2c-f66a-4b75-9685-c6a84f21e395)
+
+### Payment modal — UPI QR and options
+![Payment modal — UPI QR and options](https://github.com/user-attachments/assets/e5360644-b66d-44fc-9757-d5899374a40f)
+
+### Payment confirmation email (meeting link & details)
+![Payment confirmation email](https://github.com/user-attachments/assets/ececfb75-3edb-4407-ae8e-1e8a77ec6322)
+
+
+Why this project
+----------------
+Mentorship scales learning — MentorHub aims to make it easy for communities, bootcamps, and organizations to manage mentor/mentee relationships with a simple, modern web UI and an extensible backend.
+
+Table of Contents
+- [Features](#features)
+- [Tech stack](#tech-stack)
+- [Getting started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Install & Run (Local)](#install--run-local)
+- [Usage](#usage)
+- [Project structure](#project-structure)
+- [Contributing](#contributing)
+- [Roadmap](#roadmap)
+- [License](#license)
+- [Contact](#contact)
+
+Features
+--------
+- Account types: Mentor and Mentee
+- Profile pages with skills and availability
+- Search and match by skills and availability
+- Scheduling with Zoom API integration
+- Session notes, resource sharing, and ratings
+- Payments via Razorpay
+- Email notifications via Nodemailer
+
+Tech stack
+----------
+Frontend
+- React (Create React App, React 18)
+- React Router
+- Ant Design
+- Tailwind CSS utilities
+- Axios
+- Zustand (state management)
+- React Hook Form
+- React Hot Toast
+- React Icons
+- Moment
+- React Modal
+- Testing libs: @testing-library/*
+
+Backend
+- Node.js / Express
+- MongoDB with Mongoose
+- JWT authentication
+- Joi validation
+- Razorpay (payments)
+- Zoom API (scheduling)
+- Nodemailer (SMTP email)
+- Cloudinary (media)
+- Multer (uploads)
+- cookie-parser, cors, dotenv, moment
+- Dev: nodemon
+
+Getting started
+---------------
+
+Prerequisites
+- Node.js >= 16, npm or Yarn
+- MongoDB (local or hosted like Atlas)
+- SMTP credentials for sending emails (or a testing SMTP)
+- Razorpay account/keys (for payments)
+- Zoom API credentials (for scheduling) — optional but recommended
+- Cloudinary account (optional, for media uploads)
+
+Install & Run (Local)
+---------------------
+Clone the repo:
+```bash
+git clone https://github.com/CodeLeoX16/MentorHub-platform.git
+cd MentorHub-platform
+```
+
+Install dependencies:
+```bash
+# Backend
+cd server
+npm install
+
+# Frontend
+cd ../client
+npm install
+```
+
+Environment files
+- server/.env (example)
+```
+PORT=4000
+MONGO_URI=mongodb://localhost:27017/mentorhub
+JWT_SECRET=your_jwt_secret
+RAZORPAY_KEY_ID=your_key_id
+RAZORPAY_KEY_SECRET=your_key_secret
+ZOOM_API_KEY=your_zoom_api_key
+ZOOM_API_SECRET=your_zoom_api_secret
+SMTP_HOST=smtp.example.com
+SMTP_PORT=587
+SMTP_USER=you@example.com
+SMTP_PASS=your_smtp_password
+CLOUDINARY_CLOUD_NAME=...
+CLOUDINARY_API_KEY=...
+CLOUDINARY_API_SECRET=...
+```
+
+- client/.env (example)
+```
+REACT_APP_API_URL=http://localhost:4000/api
+REACT_APP_SITE_URL=http://localhost:3000
+REACT_APP_CLOUDINARY_CLOUD_NAME=...
+```
+
+Run locally
+```bash
+# Backend (dev)
+cd server
+npm run dev   # runs nodemon
+
+# Frontend (CRA)
+cd ../client
+npm start     # runs Create React App dev server
+```
+
+Open http://localhost:3000 and use the app. You can also visit the live demo: https://mentorhub-platform-frontend2.onrender.com
+
+Tests
+-----
+- Frontend: uses @testing-library/*  
+  Example:
+  ```bash
+  cd client
+  npm test
+  ```
+
+- Backend: add your tests and run (example)
+  ```bash
+  cd server
+  npm test
+  ```
+
+Usage
+-----
+- Sign up as Mentor or Mentee
+- Complete your profile with skills and availability
+- Search for mentors/mentees and request sessions
+- Pay for sessions via Razorpay and receive a meeting link/email
+- After a session, add notes and shared resources
+
+Project structure (typical)
+---------------------------
+/client         # frontend (Create React App)
+/server         # backend (Express)
+/docs           # screenshots, GIFs, docs
+/README.md
+/LICENSE
+
+Contributing
+------------
+We welcome contributions!
+1. Fork the repo
+2. Create a branch: git checkout -b feat/your-feature
+3. Make changes, add tests, and run them
+4. Open a Pull Request describing your changes
+
+Guidelines:
+- Keep PRs small and focused
+- Add tests for new features or bug fixes
+- Update README/docs when behavior changes
+
+Roadmap
+-------
+- v0.1: Profiles, matching, scheduling (MVP)
+- v0.2: Improved scheduling UX (Zoom deep links), notifications
+- v1.0: Analytics, enhanced payment & subscription flows, public API
+
+Maintainers & Code of Conduct
+----------------------------
+This project follows a [Code of Conduct](./CODE_OF_CONDUCT.md). Maintainer: CodeLeoX16
+
+License
+-------
+MIT — see [LICENSE](./LICENSE).
+
+Contact
+-------
+Project owner: CodeLeoX16  
+Live demo: https://mentorhub-platform-frontend2.onrender.com
+
+Acknowledgements
+----------------
+Thanks to the open-source community and the libraries used.
