@@ -50,12 +50,13 @@ export const Nav = () => {
   );
 
   return (
-    <div className="bg-gray-900">
-      <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+    <div className="relative animate-fade-in-up shadow-xl rounded-2xl overflow-hidden z-50">
+      <div className="absolute inset-0 animate-gradient-x bg-gradient-to-r from-purple-500 via-teal-400 to-pink-400 opacity-80 blur-lg -z-10" />
+      <div className="glass-card px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
           <div className="flex items-center">
-            <NavLink to="/" className="inline-flex items-center mr-8">
-              <img className="w-48" src={logo} alt="logo" />
+            <NavLink to="/" className="inline-flex items-center mr-8 group">
+              <img className="w-48 drop-shadow-lg transition-transform duration-300 group-hover:scale-105" src={logo} alt="logo" />
             </NavLink>
           </div>
           <div className="items-center hidden space-x-8 lg:flex">
@@ -63,26 +64,35 @@ export const Nav = () => {
               <>
                 <button
                   onClick={signUpMentorBtnClick}
-                  className="h-11 px-5 font-medium text-gray-100 transition-colors duration-200 border border-gray-700 rounded hover:bg-white hover:text-black"
+                  className="h-11 px-5 font-semibold text-white bg-gradient-to-r from-purple-700 via-teal-600 to-pink-600 border border-purple-700 rounded-2xl shadow-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-pink-600 hover:via-purple-700 hover:to-teal-600 hover:scale-105 active:scale-95 animate-fade-in"
                 >
-                  Become a Mentor
+                  <span className="inline-flex items-center gap-2">
+                    <svg className="w-5 h-5 text-purple-200" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14a6 6 0 110-12 6 6 0 010 12z" /></svg>
+                    Become a Mentor
+                  </span>
                 </button>
                 <button
                   onClick={signInBtnClick}
-                  className="font-medium text-gray-100 transition-colors duration-200 hover:text-teal-300"
+                  className="font-semibold text-white bg-gradient-to-r from-teal-700 to-purple-700 rounded-2xl px-4 py-2 shadow-md border border-teal-700 transition-all duration-300 hover:bg-gradient-to-r hover:from-purple-700 hover:to-teal-700 hover:scale-105 active:scale-95 animate-fade-in"
                 >
-                  Sign in
+                  <span className="inline-flex items-center gap-2">
+                    <svg className="w-5 h-5 text-teal-200" fill="currentColor" viewBox="0 0 20 20"><path d="M3 8a4 4 0 018 0v4a4 4 0 01-8 0V8zm8 0a4 4 0 018 0v4a4 4 0 01-8 0V8z" /></svg>
+                    Sign in
+                  </span>
                 </button>
                 <button
                   onClick={signUpStudentBtnClick}
-                  className="inline-flex items-center justify-center h-11 px-5 font-medium text-white transition duration-200 bg-purple-500 rounded shadow-md hover:bg-purple-700"
+                  className="inline-flex items-center justify-center h-11 px-5 font-semibold text-white bg-gradient-to-r from-purple-700 to-teal-700 rounded-2xl shadow-xl border border-purple-700 transition-all duration-300 hover:from-teal-700 hover:to-purple-700 hover:scale-105 active:scale-95 animate-fade-in"
                 >
-                  Sign up
+                  <span className="inline-flex items-center gap-2">
+                    <svg className="w-5 h-5 text-pink-200" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14a6 6 0 110-12 6 6 0 010 12z" /></svg>
+                    Sign up
+                  </span>
                 </button>
               </>
             ) : (
               <Dropdown overlay={menu} trigger={["hover"]}>
-                <button className="flex items-center justify-center font-medium tracking-wide text-gray-100 transition-colors duration-200 border border-white rounded-full w-10 h-10 hover:text-black">
+                <button className="flex items-center justify-center font-semibold tracking-wide text-white border border-white/30 rounded-full w-11 h-11 glass-card bg-gradient-to-r from-purple-400 via-teal-300 to-pink-400 shadow-xl hover:text-purple-700 hover:bg-white/70 hover:scale-105 active:scale-95 transition-all duration-300 animate-fade-in">
                   <FaUser className="text-white" />
                 </button>
               </Dropdown>
@@ -92,7 +102,7 @@ export const Nav = () => {
           <div className="flex items-center lg:hidden">
             <button
               aria-label="Toggle navigation"
-              className="p-2 text-white rounded-md hover:bg-gray-800"
+              className="p-2 text-white rounded-xl bg-white/10 hover:bg-white/30 shadow transition-all duration-200"
               onClick={() => setMobileOpen((v) => !v)}
             >
               {mobileOpen ? <AiOutlineClose size={22} /> : <AiOutlineMenu size={22} />}
@@ -102,7 +112,7 @@ export const Nav = () => {
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="mt-4 space-y-3 rounded-lg bg-gray-800 p-4 lg:hidden">
+          <div className="mt-4 space-y-3 rounded-2xl glass-card shadow-xl p-4 lg:hidden animate-fade-in-up">
             {!user ? (
               <>
                 <button
@@ -110,7 +120,7 @@ export const Nav = () => {
                     closeMobile();
                     signUpMentorBtnClick();
                   }}
-                  className="w-full h-11 px-4 font-medium text-left text-gray-100 bg-gray-700 rounded"
+                  className="w-full h-11 px-4 font-medium text-left text-white bg-gradient-to-r from-purple-500 to-teal-400 rounded-xl shadow hover:from-teal-400 hover:to-purple-500 hover:scale-105 active:scale-95 transition-all duration-200"
                 >
                   Become a Mentor
                 </button>
@@ -119,7 +129,7 @@ export const Nav = () => {
                     closeMobile();
                     signInBtnClick();
                   }}
-                  className="w-full text-left text-gray-100"
+                  className="w-full text-left text-white rounded-xl px-4 py-2 hover:bg-purple-100 hover:text-purple-700 hover:scale-105 active:scale-95 transition-all duration-200"
                 >
                   Sign in
                 </button>
@@ -128,7 +138,7 @@ export const Nav = () => {
                     closeMobile();
                     signUpStudentBtnClick();
                   }}
-                  className="w-full h-11 px-4 font-medium text-left text-white bg-purple-500 rounded"
+                  className="w-full h-11 px-4 font-medium text-left text-white bg-gradient-to-r from-purple-500 to-teal-400 rounded-xl shadow hover:from-teal-400 hover:to-purple-500 hover:scale-105 active:scale-95 transition-all duration-200"
                 >
                   Sign up
                 </button>
@@ -138,7 +148,7 @@ export const Nav = () => {
                 <NavLink
                   to="/dashboard/profile"
                   onClick={closeMobile}
-                  className="block w-full px-2 py-2 text-white rounded hover:bg-gray-700"
+                  className="block w-full px-2 py-2 text-white rounded-xl hover:bg-purple-100 hover:text-purple-700 hover:scale-105 active:scale-95 transition-all duration-200"
                 >
                   Dashboard
                 </NavLink>
@@ -147,7 +157,7 @@ export const Nav = () => {
                     closeMobile();
                     onButtonClick();
                   }}
-                  className="block w-full px-2 py-2 text-left text-white rounded hover:bg-gray-700"
+                  className="block w-full px-2 py-2 text-left text-white rounded-xl hover:bg-purple-100 hover:text-purple-700 hover:scale-105 active:scale-95 transition-all duration-200"
                 >
                   Logout
                 </button>

@@ -35,6 +35,31 @@ const sendConfirmationMail = async (to, name, meetingLink, date, time) => {
   return sendEmail(to, subject, data);
 };
 
+const sendMentorNotificationMail = async (
+  to,
+  mentorName,
+  studentName,
+  serviceName,
+  meetingLink,
+  date,
+  time
+) => {
+  const subject = "New Booking Confirmed";
+
+  const template = path.join(__dirname, "../template/confirmation_mentor.ejs");
+  const data = await ejs.renderFile(template, {
+    name: mentorName,
+    studentName,
+    serviceName,
+    meetingLink,
+    date,
+    time,
+  });
+
+  return sendEmail(to, subject, data);
+};
+
 module.exports = {
   sendConfirmationMail,
+  sendMentorNotificationMail,
 };

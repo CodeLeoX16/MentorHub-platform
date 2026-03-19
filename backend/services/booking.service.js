@@ -7,7 +7,8 @@ const createBooking = async (bookingData) => {
 const getBookingById = async (bookingId) => {
   return await BookingModel.findById(bookingId)
     .populate("service")
-    .populate("user");
+    .populate("user")
+    .populate("mentor");
 };
 
 const updateBookingById = async (bookingId, bookingData) => {

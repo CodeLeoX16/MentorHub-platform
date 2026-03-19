@@ -22,37 +22,42 @@ const Home = () => {
       <Nav />
       <div className="bg-white">
         {/* Hero Section */}
-        <section className="relative overflow-hidden bg-gradient-to-b from-gray-900 via-black to-gray-900 text-white">
-          <img className="hidden w-14 md:block absolute top-10 left-[12%]" src={star} alt="" />
+        <section className="relative overflow-hidden bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 text-white min-h-[70vh] flex items-center animate-fade-in">
+          {/* Decorative gradients and glassmorphism overlays */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute w-96 h-96 bg-gradient-to-tr from-purple-500/40 to-teal-300/30 rounded-full blur-3xl left-[-10%] top-[-10%] animate-pulse" />
+            <div className="absolute w-80 h-80 bg-gradient-to-br from-pink-400/30 to-indigo-400/20 rounded-full blur-2xl right-[-8%] top-[10%] animate-pulse delay-200" />
+          </div>
+          <img className="hidden w-14 md:block absolute top-10 left-[12%] drop-shadow-xl" src={star} alt="" />
           <img className="hidden w-14 md:block absolute top-[18%] left-48" src={graduated} alt="" />
           <img className="hidden w-20 md:block absolute top-16 right-[12%]" src={diamond} alt="" />
 
-          <div className="max-w-6xl px-4 py-14 mx-auto md:py-20">
+          <div className="max-w-6xl px-4 py-14 mx-auto md:py-20 relative z-10">
             <div className="flex flex-col items-center text-center gap-6 md:gap-8">
-              <h1 className="text-3xl font-extrabold md:text-6xl lg:text-7xl">
-                Welcome to <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-teal-300">MentorHub</span>
+              <h1 className="text-4xl font-extrabold md:text-7xl lg:text-8xl tracking-tight drop-shadow-lg animate-fade-in-up">
+                Welcome to <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-teal-300 animate-gradient-x">MentorHub</span>
               </h1>
-              <p className="max-w-2xl text-sm text-gray-200 md:text-lg lg:text-xl">
+              <p className="max-w-2xl text-base text-gray-200 md:text-xl lg:text-2xl font-medium animate-fade-in-up delay-150">
                 Unlock your potential with the guidance of expert mentors.
               </p>
-              <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
+              <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4 animate-fade-in-up delay-300">
                 <NavLink to="/mentors">
-                  <button className="px-7 py-3 text-sm font-semibold text-white transition rounded-full shadow-lg bg-gradient-to-r from-purple-500 to-indigo-500 hover:shadow-xl">
+                  <button className="px-8 py-3 text-lg font-semibold text-white transition rounded-full shadow-xl bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-purple-400/40 active:scale-95 duration-200">
                     Find Your Mentor
                   </button>
                 </NavLink>
                 <NavLink to="/signup/mentor">
-                  <button className="px-7 py-3 text-sm font-semibold text-gray-900 transition bg-white rounded-full shadow hover:shadow-lg">
+                  <button className="px-8 py-3 text-lg font-semibold text-gray-900 transition bg-white/80 backdrop-blur-md rounded-full shadow hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-indigo-400/40 active:scale-95 duration-200">
                     Become a Mentor
                   </button>
                 </NavLink>
               </div>
             </div>
 
-            <div className="relative mt-10 md:mt-14">
+            <div className="relative mt-10 md:mt-14 animate-fade-in-up delay-500">
               <img className="hidden w-14 md:block absolute top-24 left-4" src={coding} alt="" />
               <img className="hidden w-14 md:block absolute top-3 right-8" src={trophy} alt="" />
-              <div className="overflow-hidden bg-black/40 border border-white/10 shadow-2xl rounded-2xl">
+              <div className="overflow-hidden bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl rounded-2xl glass-card transition-all duration-300 hover:scale-[1.02]">
                 <video autoPlay loop muted className="object-cover w-full h-full">
                   <source src={heroVideo} type="video/mp4" />
                 </video>

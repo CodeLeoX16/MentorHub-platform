@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Animations for fade-in and up */
+@layer utilities {
+	.animate-fade-in {
+		animation: fadeIn 1.2s cubic-bezier(0.4,0,0.2,1) both;
+	}
+	.animate-fade-in-up {
+		animation: fadeInUp 1.2s cubic-bezier(0.4,0,0.2,1) both;
+	}
+	.animate-gradient-x {
+		background-size: 200% 200%;
+		animation: gradientX 3s ease-in-out infinite;
+	}
+}
+@keyframes fadeIn {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+@keyframes fadeInUp {
+	0% { opacity: 0; transform: translateY(40px); }
+	100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes gradientX {
+	0%, 100% { background-position: 0% 50%; }
+	50% { background-position: 100% 50%; }
+}
+
+/* Glassmorphism utility */
+.glass-card {
+	background: rgba(255,255,255,0.25);
+	box-shadow: 0 8px 32px 0 rgba(31,38,135,0.18);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	border-radius: 1.5rem;
+	border: 1px solid rgba(255,255,255,0.18);
+}
