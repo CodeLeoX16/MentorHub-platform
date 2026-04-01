@@ -7,6 +7,7 @@ const serviceService = require("../services/service.service");
 const config = require("../config");
 const zoomService = require("../services/zoom.service");
 const emailService = require("../services/email.service");
+const transactionService = require("../services/transaction.service");
 
 const initiateBookingAndPayment = async (req, res, next) => {
   const { dateAndTime, serviceId } = req.body;
@@ -88,6 +89,20 @@ const confirmBooking = async (req, res, next) => {
     meetingLink: zoomMeeting,
     status: "confirmed",
   });
+
+  // Create a transaction record for the confirmed booking
+  try {
+    await transactionService.createTransaction({
+      amount: booking.price,
+      type: "income",
+      category: "booking",
+      date: new Date(),
+      notes: `Booking ${booking._id}`,
+      createdBy: booking.user._id || booking.user,
+    });
+  } catch (err) {
+    console.error("Failed to create transaction for booking:", err.message || err);
+  }
 
   await emailService.sendConfirmationMail(
     booking.user.email,

@@ -6,6 +6,8 @@ import Services from "../page/dashboard/services";
 import Profile from "../page/dashboard/profile";
 import Schedule from "../page/dashboard/schedule";
 import Payment from "../page/dashboard/payment";
+import Transactions from "../page/dashboard/transactions";
+import AdminDashboard from "../page/dashboard/admin";
 import PageNotFound from "../page/pageNotFound";
 import AllMentors from "../page/allMentors";
 import Bookings from "../page/dashboard/bookings";
@@ -53,6 +55,16 @@ const routes = [
   {
     path: "/dashboard/payment",
     element: <Payment />,
+    isProtected: true,
+  },
+  {
+    path: "/dashboard/transactions",
+    element: <Transactions />,
+    isProtected: true,
+  },
+  {
+    path: "/dashboard/admin",
+    element: <AdminDashboard />,
     isProtected: true,
   },
   {

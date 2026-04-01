@@ -10,6 +10,8 @@ const availabilityRoute = require("./availability.route");
 const mentorRoute = require("./mentor.route");
 const bookingRoute = require("./booking.route");
 const webhookRoute = require("./webhook.route");
+const transactionRoute = require("./transaction.route");
+const debugRoute = require("./debug.route");
 
 const Routes = [
   {
@@ -43,6 +45,14 @@ const Routes = [
   {
     path: "/webhook",
     route: webhookRoute,
+  },
+  {
+    path: "/transaction",
+    route: transactionRoute,
+  },
+  {
+    path: "/debug",
+    route: debugRoute,
   },
 ];
 

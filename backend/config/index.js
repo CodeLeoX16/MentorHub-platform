@@ -10,6 +10,8 @@ module.exports = {
     verificationSecret: process.env.JWT_VERIFICATION_SECRET || "random-secret",
     verificationExpirationMinutes:
       process.env.JWT_VERIFICATION_EXPIRATION_MINUTES || 5,
+    refreshSecret: process.env.JWT_REFRESH_SECRET || "random-refresh-secret",
+    refreshExpirationDays: process.env.JWT_REFRESH_EXPIRATION_DAYS || 30,
   },
   cloudinary: {
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,

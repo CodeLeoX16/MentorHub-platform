@@ -35,7 +35,7 @@ const userSchema = new Schema(
     },
     role: {
       type: Schema.Types.String,
-      enum: ["mentor", "student"],
+      enum: ["mentor", "student", "admin", "analyst", "viewer"],
       default: null, // Initially null, can be set later
     },
     profile: {

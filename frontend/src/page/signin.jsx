@@ -27,9 +27,15 @@ const SignIn = () => {
     const response = await auth.signin(data);
     reset();
     setUser(response.data.user);
-    setToken(response.data.token);
-    // Navigate to home after successful login
-    navigate("/");
+    // backend returns { tokens: { access: { token } } }
+    const accessToken = response.data.tokens?.access?.token || response.data.token;
+    setToken(accessToken);
+    // Navigate based on role after successful login
+    if (response.data.user?.role === "admin") {
+      navigate("/dashboard/admin");
+    } else {
+      navigate("/");
+    }
     toast.success("Login successful!");
 
     setIsLoading(false);

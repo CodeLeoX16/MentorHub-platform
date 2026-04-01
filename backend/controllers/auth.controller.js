@@ -2,6 +2,7 @@ const userService = require("../services/auth.service");
 const httpStatus = require("../util/httpStatus");
 const tokenService = require("../services/token.service");
 const emailService = require("../services/email.service");
+
 const signUp = async (req, res) => {
   const { name, email, password, username, role } = req.body;
 
@@ -26,15 +27,33 @@ const signIn = async (req, res) => {
 
   const user = await userService.loginUserWithEmailAndPassword(email, password);
 
-  const token = await tokenService.generateAuthTokens(user);
+  const tokens = await tokenService.generateAuthTokens(user);
   // remove password from user
   user.password = undefined;
 
   res.status(httpStatus.ok).json({
     message: "user signed in successfully",
-    token,
+    tokens,
     user,
   });
 };
 
-module.exports = { signUp, signIn };
+const refreshToken = async (req, res) => {
+  const { refreshToken } = req.body;
+  if (!refreshToken) {
+    return res.status(httpStatus.badRequest).json({ message: "Missing refreshToken" });
+  }
+
+  const tokens = await tokenService.refreshAuth(refreshToken);
+  return res.status(httpStatus.ok).json({ message: "Token refreshed", tokens });
+};
+
+const signOut = async (req, res) => {
+  const { refreshToken } = req.body;
+  if (refreshToken) {
+    await tokenService.revokeRefreshToken(refreshToken);
+  }
+  return res.status(httpStatus.ok).json({ message: "Signed out" });
+};
+
+module.exports = { signUp, signIn, refreshToken, signOut };

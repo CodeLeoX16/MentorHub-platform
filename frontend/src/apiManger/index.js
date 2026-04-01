@@ -5,6 +5,7 @@ import toast from "react-hot-toast"; // Import toast for displaying notification
 import { USER_STORE_PERSIST } from "../const"; // Import constants
 import { BASE_URL } from "../const/env.const"; // Import environment constants
 import { getToken, removeToken } from "../helper"; // Import helper functions
+import transactionApi from "./transaction";
 
 let AxiosInstances; // Declare a variable to hold the axios instance
 
@@ -44,3 +45,5 @@ let AxiosInstances; // Declare a variable to hold the axios instance
 })();
 
 export default AxiosInstances; // Export the axios instance
+
+export { transactionApi };
