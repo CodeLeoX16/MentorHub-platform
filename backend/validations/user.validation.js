@@ -14,6 +14,25 @@ const updateUserProfileValidation = Joi.object({
   college: Joi.string().optional(),
 });
 
+const updateUserRoleValidation = Joi.object({
+  role: Joi.string()
+    .valid("mentor", "student", "admin", "analyst", "viewer")
+    .required()
+    .messages({
+      "any.only": "Role must be one of: mentor, student, admin, analyst, viewer",
+      "any.required": "Role is required",
+    }),
+});
+
+const updateUserStatusValidation = Joi.object({
+  status: Joi.string().valid("active", "inactive").required().messages({
+    "any.only": "Status must be active or inactive",
+    "any.required": "Status is required",
+  }),
+});
+
 module.exports = {
   updateUserProfileValidation,
+  updateUserRoleValidation,
+  updateUserStatusValidation,
 };
