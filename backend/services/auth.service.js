@@ -13,6 +13,13 @@ const loginUserWithEmailAndPassword = async (email, password) => {
     throw new ApiError(httpStatus.unauthorized, "Incorrect email or password");
   }
 
+  if (user.status === "inactive") {
+    throw new ApiError(
+      httpStatus.forbidden,
+      "Your account has been deactivated. Please contact an administrator."
+    );
+  }
+
   return user;
 };
 

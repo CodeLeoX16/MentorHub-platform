@@ -38,6 +38,11 @@ const userSchema = new Schema(
       enum: ["mentor", "student", "admin", "analyst", "viewer"],
       default: null, // Initially null, can be set later
     },
+    status: {
+      type: Schema.Types.String,
+      enum: ["active", "inactive"],
+      default: "active",
+    },
     profile: {
       tags: {
         type: [Schema.Types.String],

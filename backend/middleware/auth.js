@@ -38,6 +38,16 @@ const protect = async (req, res, next) => {
       );
     }
 
+    // 4) Check if user account is active
+    if (currentUser.status === "inactive") {
+      return next(
+        new ApiError(
+          httpStatus.forbidden,
+          "Your account has been deactivated. Please contact an administrator."
+        )
+      );
+    }
+
     // GRANT ACCESS TO PROTECTED ROUTE
     req.user = currentUser;
     next();
