@@ -75,9 +75,36 @@ const getNext14DaysAvailability = async (req, res, next) => {
   });
 };
 
+// Admin: get availability for any mentor
+const adminGetAvailability = async (req, res, next) => {
+  const mentorId = req.params.mentorId;
+  const availability = await availabilityService.getAvailability(mentorId);
+  if (!availability) {
+    return next(new ApiError(httpStatus.notFound, "Availability not found"));
+  }
+  res.status(httpStatus.ok).json({ success: true, availability });
+};
+
+// Admin: update availability for any mentor
+const adminUpdateAvailability = async (req, res, next) => {
+  const mentorId = req.params.mentorId;
+  const availabilityData = req.body;
+  const availability = await availabilityService.updateAvailability(
+    mentorId,
+    availabilityData
+  );
+  res.status(httpStatus.ok).json({
+    success: true,
+    message: "Availability updated successfully",
+    availability,
+  });
+};
+
 module.exports = {
   createAvailability,
   getAvailability,
   updateAvailability,
   getNext14DaysAvailability,
+  adminGetAvailability,
+  adminUpdateAvailability,
 };

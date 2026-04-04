@@ -29,7 +29,23 @@ const getAllMentors = async (req, res, next) => {
   });
 };
 
+const deleteMentor = async (req, res, next) => {
+  const { id } = req.params;
+  const deleted = await mentorService.deleteMentorById(id);
+  if (!deleted) {
+    return next(new ApiError(httpStatus.notFound, "Mentor not found"));
+  }
+  res.status(httpStatus.ok).json({ success: true, message: "Mentor deleted" });
+};
+
+const getMentorStats = async (req, res, next) => {
+  const stats = await mentorService.getMentorStats();
+  res.status(httpStatus.ok).json({ success: true, stats });
+};
+
 module.exports = {
   getMentorInfoByUsername,
   getAllMentors,
+  deleteMentor,
+  getMentorStats,
 };

@@ -12,6 +12,7 @@ const bookingRoute = require("./booking.route");
 const webhookRoute = require("./webhook.route");
 const transactionRoute = require("./transaction.route");
 const debugRoute = require("./debug.route");
+const adminRoute = require("./admin.route");
 
 const Routes = [
   {
@@ -49,6 +50,10 @@ const Routes = [
   {
     path: "/transaction",
     route: transactionRoute,
+  },
+  {
+    path: "/admin",
+    route: adminRoute,
   },
   {
     path: "/debug",

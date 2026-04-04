@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Button, Avatar, Input, Modal, Form, Spin, message } from "antd";
+import { useNavigate } from "react-router-dom";
 import {
   AiOutlineUser,
   AiOutlineMail,
@@ -15,6 +16,7 @@ import userAPI from "../../apiManger/user";
 
 const Profile = () => {
   const { setUser, user: mentorData } = useUserStore();
+  const navigate = useNavigate();
   const inputRef = useRef(null);
 
   const [isEditing, setIsEditing] = useState(false);
@@ -25,7 +27,7 @@ const Profile = () => {
     if (file) {
       setLoading(true);
       const formData = new FormData();
-      formData.append("photo", file);
+      formData.append("photo", file);   
 
       try {
         const response = await userAPI.uploadImage(formData);
@@ -180,6 +182,16 @@ const Profile = () => {
           >
             Edit Profile
           </Button>
+
+          {mentorData?.role === "admin" && (
+            <Button
+              type="default"
+              className="w-full mt-4 text-lg rounded-lg"
+              onClick={() => navigate("/dashboard/admin")}
+            >
+              View Admin Dashboard
+            </Button>
+          )}
 
           <Modal
             title="Edit Profile"

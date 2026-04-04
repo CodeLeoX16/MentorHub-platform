@@ -23,9 +23,29 @@ const getServiceById = async (serviceId) => {
   return await ServiceModel.findById(serviceId);
 };
 
+const deleteServiceById = async (serviceId) => {
+  // delete the service
+  const deleted = await ServiceModel.findByIdAndDelete(serviceId);
+  return deleted;
+};
+
+const getAllServices = async () => {
+  return await ServiceModel.find({});
+};
+
+const updateServiceById = async (serviceId, updateData) => {
+  return await ServiceModel.findByIdAndUpdate(serviceId, updateData, {
+    new: true,
+    runValidators: true,
+  });
+};
+
 module.exports = {
   createService,
   updateService,
   getServiceByMentor,
   getServiceById,
+  deleteServiceById,
+  getAllServices,
+  updateServiceById,
 };

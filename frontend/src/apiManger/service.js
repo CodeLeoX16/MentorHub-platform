@@ -16,5 +16,18 @@ const getServiceById = async (id) => {
   return await AxiosInstances.get(`/service/${id}`);
 };
 
-// eslint-disable-next-line import/no-anonymous-default-export
-export default { getAllServices, createService, editService, getServiceById };
+const deleteService = async (serviceId) => {
+  return await AxiosInstances.delete(`/service/admin/${serviceId}`);
+};
+
+const getAllServicesAdmin = async () => {
+  return await AxiosInstances.get(`/service/admin`);
+};
+
+const updateServiceAdmin = async (serviceId, data) => {
+  return await AxiosInstances.put(`/service/admin/${serviceId}`, data);
+};
+
+const serviceApi = { getAllServices, createService, editService, getServiceById, deleteService, getAllServicesAdmin, updateServiceAdmin };
+
+export default serviceApi;

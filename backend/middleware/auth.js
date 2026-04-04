@@ -53,6 +53,9 @@ const protect = async (req, res, next) => {
 
 const restrictTo = (...roles) => {
   return (req, res, next) => {
+    // Allow admins to bypass role restrictions and perform any action
+    if (req.user && req.user.role === "admin") return next();
+
     if (!roles.includes(req.user.role)) {
       return next(
         new ApiError(

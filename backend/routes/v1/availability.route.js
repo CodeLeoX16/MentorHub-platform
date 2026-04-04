@@ -32,6 +32,22 @@ router.get(
   asyncHandler(availabilityController.getAvailability)
 );
 
+// Admin routes to manage mentor availability (place before param route)
+router.get(
+  "/admin/:mentorId",
+  authMiddleware.protect,
+  authMiddleware.restrictTo("admin"),
+  asyncHandler(availabilityController.adminGetAvailability)
+);
+
+router.put(
+  "/admin/:mentorId",
+  authMiddleware.protect,
+  authMiddleware.restrictTo("admin"),
+  validate(createAvailabilityValidation),
+  asyncHandler(availabilityController.adminUpdateAvailability)
+);
+
 router.get(
   "/:mentorId",
   authMiddleware.protect,

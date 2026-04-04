@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Dashboard from "./dashboard";
 import ServiceCard from "../../components/ServiceCard";
 import service from "../../apiManger/service";
-import { Button, Input, Modal, Form, Spin } from "antd"; // Ant Design components for form, modal, and message
+import { Button, Input, Modal, Form, Spin, Switch } from "antd"; // Ant Design components for form, modal, and message
 import toast from "react-hot-toast";
 import { FiPlus } from "react-icons/fi";
 
@@ -98,7 +98,7 @@ const Services = () => {
         >
           <Form
             onFinish={editingService ? handleEditService : handleCreateService}
-            initialValues={editingService} // Prefill form with service data if editing
+            initialValues={editingService || { active: false }} // Prefill form with service data if editing
           >
             <Form.Item
               label="Name"
@@ -141,6 +141,10 @@ const Services = () => {
               ]}
             >
               <Input type="number" />
+            </Form.Item>
+
+            <Form.Item label="Active" name="active" valuePropName="checked">
+              <Switch />
             </Form.Item>
             <Button type="primary" htmlType="submit">
               {editingService ? "Save Changes" : "Create Service"}

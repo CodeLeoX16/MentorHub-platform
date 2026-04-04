@@ -33,6 +33,28 @@ router.get(
   asyncHandler(serviceController.getServiceByMentor)
 );
 
+// Admin routes (place before param route to avoid conflicts)
+router.delete(
+  "/admin/:serviceId",
+  authMiddleware.protect,
+  authMiddleware.restrictTo("admin"),
+  asyncHandler(serviceController.deleteService)
+);
+
+router.get(
+  "/admin",
+  authMiddleware.protect,
+  authMiddleware.restrictTo("admin"),
+  asyncHandler(serviceController.getAllServices)
+);
+
+router.put(
+  "/admin/:serviceId",
+  authMiddleware.protect,
+  authMiddleware.restrictTo("admin"),
+  asyncHandler(serviceController.adminUpdateService)
+);
+
 router.get(
   "/:serviceId",
   authMiddleware.protect,

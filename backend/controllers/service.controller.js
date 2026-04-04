@@ -75,9 +75,39 @@ const getServiceById = async (req, res, next) => {
   });
 };
 
+// Admin: delete any service
+const deleteService = async (req, res, next) => {
+  const serviceId = req.params.serviceId;
+  const deleted = await serviceService.deleteServiceById(serviceId);
+  if (!deleted) {
+    return next(new ApiError(httpStatus.notFound, "Service not found"));
+  }
+  res.status(httpStatus.ok).json({ success: true, message: "Service deleted" });
+};
+
+// Admin: get all services
+const getAllServices = async (req, res, next) => {
+  const services = await serviceService.getAllServices();
+  res.status(httpStatus.ok).json({ success: true, services });
+};
+
+// Admin: update any service
+const adminUpdateService = async (req, res, next) => {
+  const serviceId = req.params.serviceId;
+  const updateData = req.body;
+  const updated = await serviceService.updateServiceById(serviceId, updateData);
+  if (!updated) {
+    return next(new ApiError(httpStatus.notFound, "Service not found"));
+  }
+  res.status(httpStatus.ok).json({ success: true, service: updated });
+};
+
 module.exports = {
   createService,
   updateService,
   getServiceByMentor,
   getServiceById,
+  deleteService,
+  getAllServices,
+  adminUpdateService,
 };
