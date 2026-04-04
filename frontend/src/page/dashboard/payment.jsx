@@ -14,7 +14,7 @@ const Payment = () => {
   const fetchPayments = useCallback(async () => {
     setLoading(true);
     try {
-      const res =
+      const res =   
         user?.role === "mentor"
           ? await bookingApi.getMentorBookings()
           : await bookingApi.getStudentBookigs();

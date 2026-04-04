@@ -16,7 +16,7 @@ const getMentorInfoByUsername = async (req, res, next) => {
   res.status(httpStatus.ok).json({
     success: true,
     mentor,
-    services,
+    services,   
   });
 };
 

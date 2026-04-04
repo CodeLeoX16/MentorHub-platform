@@ -14,3 +14,4 @@ const updateUser = async (data) => {
 const userAPI = { uploadImage, getUser, updateUser };
 
 export default userAPI;
+   

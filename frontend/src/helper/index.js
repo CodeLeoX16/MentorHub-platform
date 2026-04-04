@@ -11,3 +11,4 @@ const setToken = (data) => {
 const removeToken = () => sessionStorage.removeItem(TOKEN);
 
 export { getToken, setToken, removeToken };
+   

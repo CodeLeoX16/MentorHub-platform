@@ -56,4 +56,4 @@ const signOut = async (req, res) => {
   return res.status(httpStatus.ok).json({ message: "Signed out" });
 };
 
-module.exports = { signUp, signIn, refreshToken, signOut };
+module.exports = { signUp, signIn, refreshToken, signOut };   

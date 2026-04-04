@@ -4,7 +4,7 @@ const config = require(".");
 
 mongoose.set("strictQuery", true);
 
-mongoose
+mongoose   
   .connect(config.DB_URL)
   .then(() => {
     console.log("Mongoose connection done");

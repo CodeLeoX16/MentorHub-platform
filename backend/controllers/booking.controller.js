@@ -20,7 +20,7 @@ const initiateBookingAndPayment = async (req, res, next) => {
     mentor: service.mentor,
     dateAndTime,
     service: serviceId,
-    price: service.price,
+    price: service.price,   
   });
 
   // Initialize Razorpay instance

@@ -20,7 +20,7 @@ const Sidebar = () => {
         </h4>
         <p className="mt-1 text-sm text-gray-500 truncate">{user?.email || ""}</p>
       </div>
-
+   
       <div className="flex flex-col justify-between flex-1 mt-6">
         <nav>
           <NavLink

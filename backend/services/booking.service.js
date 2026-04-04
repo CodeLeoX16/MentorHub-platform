@@ -9,7 +9,7 @@ const getBookingById = async (bookingId) => {
     .populate("service")
     .populate("user")
     .populate("mentor");
-};
+};   
 
 const updateBookingById = async (bookingId, bookingData) => {
   return await BookingModel.findByIdAndUpdate(bookingId, bookingData, {

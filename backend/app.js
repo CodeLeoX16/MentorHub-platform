@@ -16,7 +16,7 @@ const path = require("path");
 app.use(cors());
 
 // Middleware to parse incoming JSON requests
-app.use(express.json());
+app.use(express.json());   
 
 // Middleware to parse URL-encoded data (for form submissions, etc.)
 app.use(express.urlencoded({ extended: true }));

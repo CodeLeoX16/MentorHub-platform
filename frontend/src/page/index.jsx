@@ -16,7 +16,7 @@ const Home = () => {
   const toggleFAQ = (index) => {
     setIsOpen((prev) => ({ ...prev, [index]: !prev[index] }));
   };
-
+   
   return (
     <>
       <Nav />

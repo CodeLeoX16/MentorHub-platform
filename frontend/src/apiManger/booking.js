@@ -17,7 +17,7 @@ const booking = {
   bookService,
   confirmBooking,
   getMentorBookings,
-  getStudentBookigs,
+  getStudentBookigs,   
 };
 
 export default booking;

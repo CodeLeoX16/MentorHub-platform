@@ -12,7 +12,7 @@ async function seed() {
     if (existing) {
       console.log("Admin user already exists:", existing.email);
       process.exit(0);
-    }
+    }   
 
     const user = new User({
       name: NAME,

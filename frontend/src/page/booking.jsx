@@ -12,7 +12,7 @@ import handlePayment from "../components/Checkout";
 import Layout from "../components/Layout";
 
 const Booking = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate();   
   const { id } = useParams();
   const [serviceData, setServiceData] = useState(null);
   const [mentorAvailability, setMentorAvailability] = useState(null);

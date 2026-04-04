@@ -16,7 +16,7 @@ module.exports = (schema, source = ValidationSource.BODY) => {
       const { error, value } = schema.validate(req[source], {
         allowUnknown: true,
         stripUnknown: true,
-      });
+      });   
 
       if (!error) {
         req[source] = value; // use sanitized payload

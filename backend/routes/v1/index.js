@@ -55,7 +55,7 @@ const Routes = [
     path: "/admin",
     route: adminRoute,
   },
-  {
+  {   
     path: "/debug",
     route: debugRoute,
   },

@@ -11,7 +11,7 @@ transport
   .catch((err) => {
     console.error("Unable to connect to email server.", err && err.message ? err.message : err);
   });
-
+   
 const sendEmail = async (to, subject, html) => {
   try {
     const msg = { from: config.email.from, to, subject, html };

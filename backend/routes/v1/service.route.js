@@ -49,7 +49,7 @@ router.get(
 );
 
 router.put(
-  "/admin/:serviceId",
+  "/admin/:serviceId",   
   authMiddleware.protect,
   authMiddleware.restrictTo("admin"),
   asyncHandler(serviceController.adminUpdateService)

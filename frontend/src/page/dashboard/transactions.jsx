@@ -12,7 +12,7 @@ const TransactionsPage = () => {
       const blob = new Blob([res.data], { type: "text/csv" });
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
-      a.href = url;
+      a.href = url;   
       a.download = `transactions_${new Date().toISOString()}.csv`;
       document.body.appendChild(a);
       a.click();

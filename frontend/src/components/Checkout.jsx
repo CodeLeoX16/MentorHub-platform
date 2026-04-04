@@ -12,7 +12,7 @@ const loadScript = (src) => {
     };
     document.body.appendChild(script);
   });
-};
+};   
 
 const handlePayment = async (orderId, handler) => {
   await loadScript("https://checkout.razorpay.com/v1/checkout.js");

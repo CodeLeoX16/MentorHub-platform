@@ -12,7 +12,7 @@ const tokenSchema = new mongoose.Schema(
       required: true,
     },
     type: {
-      type: String,
+      type: String,   
       enum: ["refresh", "verify"],
       required: true,
     },

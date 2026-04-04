@@ -13,7 +13,7 @@ const Booking = () => {
 
   const fetchBookings = useCallback(async () => {
     setLoading(true);
-    try {
+    try {   
       const res =
         user?.role === "mentor"
           ? await booking.getMentorBookings()

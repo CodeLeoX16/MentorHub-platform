@@ -89,7 +89,7 @@ const deleteService = async (req, res, next) => {
 const getAllServices = async (req, res, next) => {
   const services = await serviceService.getAllServices();
   res.status(httpStatus.ok).json({ success: true, services });
-};
+};   
 
 // Admin: update any service
 const adminUpdateService = async (req, res, next) => {

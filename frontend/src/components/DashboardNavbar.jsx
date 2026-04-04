@@ -13,7 +13,7 @@ const DashboardNavbar = () => {
     navigate("/");
   };
 
-  return (
+  return (  
     <div>
       <div className="border-b bg-gray-50">
         <div className="container py-2 mx-auto">

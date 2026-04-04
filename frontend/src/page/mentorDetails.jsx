@@ -14,7 +14,7 @@ import Layout from "../components/Layout";
 import { BiErrorAlt } from "react-icons/bi";
 
 const MentorDetails = () => {
-  const { username } = useParams();
+  const { username } = useParams();   
   const [mentor, setMentor] = useState();
   const [services, setServices] = useState();
   const [mentorLoading, setMentorLoading] = useState(true); // Separate loading state for mentor

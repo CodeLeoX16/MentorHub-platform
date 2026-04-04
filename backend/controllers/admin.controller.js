@@ -12,7 +12,7 @@ const getCounts = async (req, res, next) => {
   const totalBookings = await BookingModel.countDocuments();
 
   res.status(httpStatus.ok).json({
-    success: true,
+    success: true,   
     totalUsers,
     menteeCount,
     mentorCount,

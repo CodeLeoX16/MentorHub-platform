@@ -16,7 +16,7 @@ const ServiceCardUserSide = ({ service, username }) => {
         className="p-4 transition bg-white border shadow-md cursor-pointer group rounded-2xl hover:-translate-y-1 hover:shadow-xl"
       >
         <div className="py-1 text-xl font-semibold lg:pb-4 text-gray-900">
-          {service?.name}
+          {service?.name}   
         </div>
         <div className="p-3 bg-gray-100 rounded-2xl group-hover:bg-gray-200">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">

@@ -19,7 +19,7 @@ const getServiceById = async (id) => {
 const deleteService = async (serviceId) => {
   return await AxiosInstances.delete(`/service/admin/${serviceId}`);
 };
-
+   
 const getAllServicesAdmin = async () => {
   return await AxiosInstances.get(`/service/admin`);
 };

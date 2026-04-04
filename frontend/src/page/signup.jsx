@@ -13,7 +13,7 @@ const SignUp = () => {
     role === "mentor" ? "Sign Up as Mentor" : "Sign Up as Student"; // Dynamic heading based on role
 
   // Initialize useForm
-  const {
+  const {    
     register,
     handleSubmit,
     reset,

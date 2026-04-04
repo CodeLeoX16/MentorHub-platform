@@ -20,7 +20,7 @@ let AxiosInstances; // Declare a variable to hold the axios instance
     const token = getToken(); // Get the token from storage
     token && (config.headers.Authorization = `Bearer ${token}`); // If token exists, add it to the headers
     return config; // Return the modified config
-  });
+  });   
 
   // Add a response interceptor to handle errors
   AxiosInstances.interceptors.response.use(

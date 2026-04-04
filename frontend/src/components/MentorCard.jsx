@@ -21,7 +21,7 @@ const MentorCard = ({ mentor }) => {
       <div className="absolute inset-0 bg-gradient-to-br from-purple-200/30 via-white/10 to-indigo-200/20 pointer-events-none z-0 rounded-2xl" />
       <div className="relative group aspect-[4/3] overflow-hidden rounded-t-2xl z-10">
         <img
-          src={
+          src={  
             mentor?.photoUrl ||
             `https://ui-avatars.com/api?name=${mentor?.name}`
           }

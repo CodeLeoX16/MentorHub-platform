@@ -15,7 +15,7 @@ const Services = () => {
   // Fetch all services
   useEffect(() => {
     const fetchServices = async () => {
-      setLoading(true);
+      setLoading(true);   
       try {
         const response = await service.getAllServices(); // Handle async call
         setServices(response?.data?.services);

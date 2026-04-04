@@ -17,7 +17,7 @@ import SuccessPage from "../page/successPage";
 import BookingPage from "../page/dashboard/bookingPage";
 
 const routes = [
-  {
+  {   
     path: "/",
     element: <Home />,
     isProtected: false,

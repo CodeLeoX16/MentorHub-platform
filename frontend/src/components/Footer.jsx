@@ -19,7 +19,7 @@ const Footer = () => {
               <li><NavLink to="/signup/mentor" className="transition-colors duration-200 text-gray-400 hover:text-white">Become a Mentor</NavLink></li>
               <li><NavLink to="/booking" className="transition-colors duration-200 text-gray-400 hover:text-white">Book a Session</NavLink></li>
             </ul>
-          </div>
+          </div>  
           <div>
             <p className="text-sm font-semibold tracking-wide text-gray-300">Resources</p>
             <ul className="mt-4 space-y-2">

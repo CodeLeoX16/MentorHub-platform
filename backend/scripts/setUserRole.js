@@ -15,7 +15,7 @@ if (!validRoles.includes(roleArg)) {
 }
 
 async function run() {
-  try {
+  try {   
     const user = await User.findOneAndUpdate(
       { email: emailArg },
       { $set: { role: roleArg, verified: true } },

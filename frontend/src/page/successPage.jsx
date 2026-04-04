@@ -15,7 +15,7 @@ const SuccessPage = () => {
     // If the countdown reaches 0, navigate to the home page (or any other route)
     if (countdown === 0) {
       navigate("/");
-    }
+    }   
 
     // Clear the interval when the component unmounts
     return () => clearInterval(timer);

@@ -15,7 +15,7 @@ const PageNotFound = () => {
           <h1 className="text-6xl font-bold text-[#6B21A8] mb-4">404</h1>
           <h2 className="mb-6 text-2xl font-semibold text-gray-800">
             Oops! We can't find that page.
-          </h2>
+          </h2>   
           <p className="mb-8 text-gray-600">
             It looks like the page you're looking for doesn't exist. You can
             head back to the homepage or try searching for something else.

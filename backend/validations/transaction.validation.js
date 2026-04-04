@@ -21,7 +21,7 @@ const listTransactionsSchema = Joi.object({
   limit: Joi.number().min(1).max(100).optional(),
   type: Joi.string().valid("income", "expense").optional(),
   category: Joi.string().optional(),
-  startDate: Joi.date().optional(),
+  startDate: Joi.date().optional(),  
   endDate: Joi.date().optional(),
 });
 

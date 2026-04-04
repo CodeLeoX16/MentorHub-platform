@@ -17,7 +17,7 @@ export const Nav = () => {
   const signInBtnClick = () => {
     navigate("/signin");
   };
-
+   
   const signUpStudentBtnClick = () => {
     navigate("/signup/student");
   };

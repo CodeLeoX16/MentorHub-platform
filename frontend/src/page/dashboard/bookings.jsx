@@ -15,7 +15,7 @@ const Booking = () => {
     setLoading(true);
     try {
       const res =
-        user?.role === "mentor"
+        user?.role === "mentor"   
           ? await booking.getMentorBookings()
           : await booking.getStudentBookigs();
       setBookings(res?.data?.bookings || []);

@@ -17,7 +17,7 @@ const TopMentors = () => {
 
     while (selected.length < 4 && selected.length < totalMentors) {
       const randomIndex = Math.floor(Math.random() * totalMentors); // Get random index
-      const randomMentor = mentors[randomIndex];
+      const randomMentor = mentors[randomIndex];   
 
       // Check if the random mentor has already been selected
       if (!selected.includes(randomMentor)) {

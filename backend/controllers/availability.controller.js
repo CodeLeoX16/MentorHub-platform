@@ -21,7 +21,7 @@ const createAvailability = async (req, res, next) => {
     availabilityData
   );
 
-  res.status(httpStatus.created).json({
+  res.status(httpStatus.created).json({   
     success: true,
     message: "Availability created successfully",
     availability,

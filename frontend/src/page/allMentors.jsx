@@ -13,7 +13,7 @@ const AllMentors = () => {
   useEffect(() => {
     const fetchAllMentors = async () => {
       setLoading(true); // Start loading
-      try {
+      try {   
         const response = await mentorAPI.getAllMentors();
         const allMentors = response?.data?.mentors || [];
         setMentorsData(allMentors); // Store all mentors in the Zustand store

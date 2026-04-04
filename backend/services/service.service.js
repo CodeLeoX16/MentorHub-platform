@@ -13,7 +13,7 @@ const updateService = async (serviceId, mentorId, updateData) => {
       runValidators: true,
     }
   );
-};
+};   
 
 const getServiceByMentor = async (mentorId) => {
   return await ServiceModel.find({ mentor: mentorId });

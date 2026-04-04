@@ -10,3 +10,4 @@ const getBookingStats = async () => {
 
 const adminApi = { getCounts, getBookingStats };
 export default adminApi;
+  

@@ -19,7 +19,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
-  );
+  );   
 }
 
 const RouteElement = ({ route }) => {

@@ -16,7 +16,7 @@ const deleteTransaction = async (id) => {
   // soft-delete
   return await Transaction.findByIdAndUpdate(id, { isDeleted: true }, { new: true });
 };
-
+   
 const queryTransactions = async (filter = {}, options = {}) => {
   const { page = 1, limit = 20 } = options;
   const skip = (page - 1) * limit;

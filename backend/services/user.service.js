@@ -18,7 +18,7 @@ const updateUserProfile = async (id, profileData) => {
     { profile: profileData },
     { new: true }
   );
-};
+};   
 
 module.exports = {
   getUserById,

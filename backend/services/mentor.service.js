@@ -12,7 +12,7 @@ const getMentorById = async (id) => {
 const getMentorByUsername = async (username) => {
   return await UserModel.findOne({ username, role: "mentor" });
 };
-
+    
 const getMentorServices = async (id) => {
   return await ServiceModel.find({ mentor: id, active: true });
 };

@@ -62,3 +62,4 @@ const availabilitySchema = new Schema(
 
 const AvailabilityModel = model("Availability", availabilitySchema);
 module.exports = AvailabilityModel;
+    

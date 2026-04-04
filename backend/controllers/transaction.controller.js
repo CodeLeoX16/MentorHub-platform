@@ -16,7 +16,7 @@ const getTransactions = async (req, res) => {
     filter.date = {};
     if (startDate) filter.date.$gte = new Date(startDate);
     if (endDate) filter.date.$lte = new Date(endDate);
-  }
+  }   
 
   const result = await transactionService.queryTransactions(filter, { page, limit });
   return res.status(httpStatus.ok).json(result);

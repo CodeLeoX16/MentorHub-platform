@@ -12,7 +12,7 @@ const generateToken = (userId, expires, secret) => {
     exp: expires.unix(),
   };
   return jwt.sign(payload, secret);
-};
+};    
 
 const saveToken = async (token, userId, expires, type, blacklisted = false) => {
   return Token.create({ token, user: userId, expires: expires.toDate(), type, blacklisted });

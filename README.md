@@ -1,222 +1,290 @@
-# MentorHub Platform
+# MentorHub — Full‑Stack Mentorship Platform (Bookings • Payments • Admin Analytics)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
-[![Live Demo](https://img.shields.io/badge/demo-online-brightgreen)](https://mentorhub-platform-frontend2.onrender.com)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Online-brightgreen)](https://mentorhub-platform-frontend2.onrender.com)
 [![Stars](https://img.shields.io/github/stars/CodeLeoX16/MentorHub-platform?style=social)](https://github.com/CodeLeoX16/MentorHub-platform/stargazers)
 
-TL;DR
------
-MentorHub connects mentors and mentees with scheduling, session notes, resource sharing, and simple matching. Try the live demo: https://mentorhub-platform-frontend2.onrender.com
+**MentorHub** is a production-style, full-stack platform that connects mentors and mentees with **secure authentication**, **role-based access**, **Razorpay payments**, **bookings**, and **admin-grade financial analytics** (including CSV export).
 
-Demo / Quick Preview
---------------------
-Live demo: https://mentorhub-platform-frontend2.onrender.com
+## 🚀 Project Overview
 
+- **Live Demo:** [View Live Site](https://mentorhub-platform-frontend2.onrender.com)
+- **Technical Documentation:** [Read Project Specs (PDF)](https://drive.google.com/file/d/11MIoWRR3ekD4V28_qsQ_bKb40Lv884St/view?usp=drive_link)
 
 
-## Screenshots
+---
 
-### Hero / Landing page
-![Hero / Landing page](https://github.com/user-attachments/assets/1bf310b9-24b4-414e-9bf5-6aeb05b8534f)
+##  highlights 
+
+- **Auth & security:** JWT **access + refresh** token flow, protected routes, RBAC (`viewer`, `analyst`, `admin`)
+- **Payments:** Razorpay booking flow + payment confirmation + transaction creation
+- **Finance analytics:** transaction aggregation API + **CSV export**
+- **Admin experience:** dashboard totals + download reports
+- **Email notifications:** booking/payment confirmations using SMTP (Nodemailer)
+- **Clean project split:** `backend/` (Express API) + `frontend/` (React)
+
+---
+
+## Quick preview
+
+### Landing
+![Hero / Landing page](https://github.com/user-attachments/assets/4e0c80ee-7b8c-48eb-bf32-8babf70491dc)
 
 ### Mentor dashboard — Services
 ![Mentor dashboard — Services](https://github.com/user-attachments/assets/b18c2d2c-f66a-4b75-9685-c6a84f21e395)
 
-### Payment modal — UPI QR and options
+### Payments — UPI QR + options
 ![Payment modal — UPI QR and options](https://github.com/user-attachments/assets/e5360644-b66d-44fc-9757-d5899374a40f)
 
-### Payment confirmation email (meeting link & details)
-![Payment confirmation email](https://github.com/user-attachments/assets/ececfb75-3edb-4407-ae8e-1e8a77ec6322)
+### Payment confirmation email
+
+### mentee (student received) & mentor received
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/7de24b2e-0d06-4f56-a679-648e1c96d28c" width="45%" />
+  <img src="https://github.com/user-attachments/assets/6130626f-2b0f-4f01-94f4-9899728dd7a4" width="45%" />
+</p>
 
 
-Why this project
-----------------
-Mentorship scales learning — MentorHub aims to make it easy for communities, bootcamps, and organizations to manage mentor/mentee relationships with a simple, modern web UI and an extensible backend.
+### Admin DashBoard
+<p align="center">
+  <img width="1896" height="912" alt="Screenshot 2026-04-02 220729" src="https://github.com/user-attachments/assets/d07e0c61-6d12-4d30-8d6a-9d8d8577bda8" />
+</p>
+---
 
-Table of Contents
-- [Features](#features)
+## Table of Contents
+
+- [Why this project](#why-this-project)
+- [Core features](#core-features)
+- [Architecture](#architecture)
 - [Tech stack](#tech-stack)
-- [Getting started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Install & Run (Local)](#install--run-local)
-- [Usage](#usage)
-- [Project structure](#project-structure)
-- [Contributing](#contributing)
+- [Repository structure](#repository-structure)
+- [Setup & run locally](#setup--run-locally)
+- [Environment variables](#environment-variables)
+- [API overview (selected)](#api-overview-selected)
+- [Admin scripts](#admin-scripts)
+- [Security checklist (before public deploy)](#security-checklist-before-public-deploy)
+- [Testing & CI](#testing--ci)
+- [Troubleshooting](#troubleshooting)
 - [Roadmap](#roadmap)
 - [License](#license)
-- [Contact](#contact)
 
-Features
---------
-- Account types: Mentor and Mentee
-- Profile pages with skills and availability
-- Search and match by skills and availability
-- Scheduling with Zoom API integration
-- Session notes, resource sharing, and ratings
-- Payments via Razorpay
-- Email notifications via Nodemailer
+---
 
-Tech stack
-----------
-Frontend
-- React (Create React App, React 18)
+## Why this project
+
+Finding the right guidance at the right time can change everything. **MentorHub** helps students connect with experienced mentors, get clear direction, and grow with confidence.
+
+Whether you're stuck in coding, preparing for interviews, or planning your career, MentorHub makes it easy to book sessions and receive personalized support.
+
+The goal of this project is to make learning simple, accessible, and effective for everyone.
+
+---
+
+## Core features
+
+- Mentor / mentee accounts
+- Profile + skills + availability
+- Booking initiation + confirmation flow
+- Razorpay payments
+- Transaction ledger (records every paid booking)
+- Admin dashboard with totals + analytics
+- CSV export (admin-only)
+- Email notifications (booking confirmation + meeting details)
+- Optional integrations: Zoom, Cloudinary uploads
+
+---
+
+## Architecture
+
+**Backend (Express + MongoDB)**
+- JWT access token for API calls
+- Refresh token rotation (secure session handling)
+- RBAC middleware for protected endpoints
+- Transactions model + aggregation endpoint for dashboard analytics
+- CSV export endpoint for admin finance reports
+
+**Frontend (React)**
+- Role-aware UI (admin dashboard visibility)
+- Admin analytics view + CSV download
+- Tailwind + Ant Design components
+
+---
+
+## Tech stack
+
+**Frontend**
+- React (Create React App)
 - React Router
-- Ant Design
-- Tailwind CSS utilities
+- Ant Design + Tailwind CSS
 - Axios
-- Zustand (state management)
+- Zustand
 - React Hook Form
-- React Hot Toast
-- React Icons
-- Moment
-- React Modal
-- Testing libs: @testing-library/*
 
-Backend
+**Backend**
 - Node.js / Express
-- MongoDB with Mongoose
+- MongoDB + Mongoose
 - JWT authentication
 - Joi validation
-- Razorpay (payments)
-- Zoom API (scheduling)
+- Razorpay integration (payments)
 - Nodemailer (SMTP email)
-- Cloudinary (media)
-- Multer (uploads)
-- cookie-parser, cors, dotenv, moment
-- Dev: nodemon
+- Optional: Zoom API, Cloudinary, Multer
 
-Getting started
----------------
+---
 
-Prerequisites
-- Node.js >= 16, npm or Yarn
-- MongoDB (local or hosted like Atlas)
-- SMTP credentials for sending emails (or a testing SMTP)
-- Razorpay account/keys (for payments)
-- Zoom API credentials (for scheduling) — optional but recommended
-- Cloudinary account (optional, for media uploads)
+## Repository structure
 
-Install & Run (Local)
----------------------
-Clone the repo:
+- `backend/` — Express API, models, services, routes
+- `frontend/` — React app (Tailwind + Ant Design)
+
+---
+
+## Setup & run locally
+
+### Prerequisites
+- Node.js >= 16
+- npm
+- MongoDB (Atlas recommended)
+
+### 1) Backend
 ```bash
-git clone https://github.com/CodeLeoX16/MentorHub-platform.git
-cd MentorHub-platform
+cd backend
+npm install
+
+cp .env.example .env
+# Fill values inside backend/.env (do NOT commit real secrets)
 ```
 
-Install dependencies:
+### 2) Frontend
+```bash
+cd frontend
+npm install
+
+# Set frontend env in your host or create a local .env if you use it
+# Example: REACT_APP_BASE_URL, REACT_APP_RAZORPAY_KEY_ID
+```
+
+### Run (development)
 ```bash
 # Backend
-cd server
-npm install
+cd backend
+npm run dev
 
-# Frontend
-cd ../client
-npm install
-```
-
-Environment files
-- server/.env (example)
-```
-PORT=4000
-MONGO_URI=mongodb://localhost:27017/mentorhub
-JWT_SECRET=your_jwt_secret
-RAZORPAY_KEY_ID=your_key_id
-RAZORPAY_KEY_SECRET=your_key_secret
-ZOOM_API_KEY=your_zoom_api_key
-ZOOM_API_SECRET=your_zoom_api_secret
-SMTP_HOST=smtp.example.com
-SMTP_PORT=587
-SMTP_USER=you@example.com
-SMTP_PASS=your_smtp_password
-CLOUDINARY_CLOUD_NAME=...
-CLOUDINARY_API_KEY=...
-CLOUDINARY_API_SECRET=...
+# Frontend (new terminal)
+cd frontend
+npm start
 ```
 
-- client/.env (example)
-```
-REACT_APP_API_URL=http://localhost:4000/api
-REACT_APP_SITE_URL=http://localhost:3000
-REACT_APP_CLOUDINARY_CLOUD_NAME=...
-```
+---
 
-Run locally
+## Environment variables
+
+### Backend (`backend/.env`)
+- `PORT`
+- `DB_URL`
+- `SMTP_HOST`, `SMTP_PORT`, `SMTP_USERNAME`, `SMTP_PASSWORD`, `EMAIL_FROM`
+- `RAZORPAY_KEY_ID`, `RAZORPAY_KEY_SECRET`
+- `JWT_ACCESS_SECRET`, `JWT_REFRESH_SECRET`, `JWT_VERIFICATION_SECRET`
+- `JWT_ACCESS_EXPIRATION_MINUTES`, `JWT_REFRESH_EXPIRATION_DAYS`
+- Optional:
+  - `CLOUDINARY_*`
+  - `ZOOM_CLIENT_ID`, `ZOOM_CLIENT_SECRET`
+
+### Frontend (host env)
+- `REACT_APP_BASE_URL`
+- `REACT_APP_RAZORPAY_KEY_ID`
+
+**Important:** Don’t commit `.env` files. Use the `.env.example` templates.
+
+---
+
+## API overview (selected)
+
+### Auth
+- `POST /v1/auth/signup` — create user (default roles: `mentor`, `student`)
+- `POST /v1/auth/signin` — returns `{ user, tokens }`
+- `POST /v1/auth/refresh-token` — rotate refresh token and issue new tokens
+
+### Transactions & reporting
+- `GET /v1/transaction/summary` — aggregated totals (role-protected)
+- `GET /v1/transaction/export` — CSV export (**admin-only**)
+
+### Bookings
+- `POST /v1/booking/initiate` — initiate booking + payment
+- `POST /v1/booking/confirm` — confirm payment + create transaction + email notification
+
+---
+
+## Admin scripts
+
+- Seed an admin:
 ```bash
-# Backend (dev)
-cd server
-npm run dev   # runs nodemon
-
-# Frontend (CRA)
-cd ../client
-npm start     # runs Create React App dev server
+cd backend
+npm run seed-admin
 ```
 
-Open http://localhost:3000 and use the app. You can also visit the live demo: https://mentorhub-platform-frontend2.onrender.com
+- Promote an existing user:
+```bash
+cd backend
+node scripts/setUserRole.js <email> admin
+```
 
-Tests
------
-- Frontend: uses @testing-library/*  
-  Example:
-  ```bash
-  cd client
-  npm test
-  ```
+Example:
+```bash
+cd backend
+node scripts/setUserRole.js bhuniasomnath2003@gmail.com admin
+```
 
-- Backend: add your tests and run (example)
-  ```bash
-  cd server
-  npm test
-  ```
+---
 
-Usage
------
-- Sign up as Mentor or Mentee
-- Complete your profile with skills and availability
-- Search for mentors/mentees and request sessions
-- Pay for sessions via Razorpay and receive a meeting link/email
-- After a session, add notes and shared resources
+## Notable files (for quick code review)
 
-Project structure (typical)
----------------------------
-/client         # frontend (Create React App)
-/server         # backend (Express)
-/docs           # screenshots, GIFs, docs
-/README.md
-/LICENSE
+- `backend/.env.example` — required env variables (no secrets)
+- `backend/scripts/seedAdmin.js` — admin seed script
+- `backend/scripts/setUserRole.js` — promote user role
+- `backend/routes/v1/transaction.route.js` — transaction endpoints (summary + export)
+- `frontend/src/page/dashboard/admin.jsx` — admin dashboard UI
 
-Contributing
-------------
-We welcome contributions!
-1. Fork the repo
-2. Create a branch: git checkout -b feat/your-feature
-3. Make changes, add tests, and run them
-4. Open a Pull Request describing your changes
+---
 
-Guidelines:
-- Keep PRs small and focused
-- Add tests for new features or bug fixes
-- Update README/docs when behavior changes
+## Security checklist (before public deploy)
 
-Roadmap
--------
-- v0.1: Profiles, matching, scheduling (MVP)
-- v0.2: Improved scheduling UX (Zoom deep links), notifications
-- v1.0: Analytics, enhanced payment & subscription flows, public API
+- Rotate keys if secrets were ever committed. If `.env` was committed, remove from git history (BFG / `git filter-repo`).
+- Use host environment variables UI (Render/Netlify/Heroku) for secrets.
+- Add/enable:
+  - `helmet`
+  - `express-rate-limit`
+  - strict CORS allowlist
+- Use a transactional SMTP provider (SendGrid/Mailgun) or Gmail app password for production.
+- Add logging (winston/pino) + monitoring if needed.
 
-Maintainers & Code of Conduct
-----------------------------
-This project follows a [Code of Conduct](./CODE_OF_CONDUCT.md). Maintainer: CodeLeoX16
+---
 
-License
--------
+## Testing & CI
+
+- Add unit tests for services/controllers (Jest or Mocha)
+- Add GitHub Actions workflow to run lint + tests on every PR
+
+---
+
+## Troubleshooting
+
+- **Emails not sent after deploy:** verify SMTP env vars + provider restrictions
+- **Payments failing:** ensure Razorpay keys exist in both backend and frontend env
+- **Admin UI not visible:** ensure `user.role === "admin"` after sign-in; clear `sessionStorage` and retry
+
+---
+
+## Roadmap
+
+- OpenAPI / Swagger docs
+- Unit + integration tests + CI
+- Audit logs + soft delete
+- CSV import for bulk uploads
+- Better scheduling UX + Zoom deep links
+
+---
+
+## License
+
 MIT — see [LICENSE](./LICENSE).
-
-Contact
--------
-Project owner: CodeLeoX16  
-Live demo: https://mentorhub-platform-frontend2.onrender.com
-
-Acknowledgements
-----------------
-Thanks to the open-source community and the libraries used.

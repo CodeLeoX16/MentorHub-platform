@@ -14,7 +14,7 @@ const Dashboard = ({ children }) => {
         {/* Sidebar for desktop / toggled for mobile */}
         <div className={`fixed inset-y-0 left-0 z-30 transform bg-white shadow-md w-64 transition-transform duration-200 ease-in-out lg:static lg:translate-x-0 ${mobileOpen ? "translate-x-0" : "-translate-x-full"}`}>
           <Sidebar />
-        </div>
+        </div>   
 
         {/* Content area */}
         <main className="flex-1 p-4 sm:p-6 lg:p-8 lg:ml-0 ml-0">

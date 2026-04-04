@@ -26,7 +26,7 @@ const uploadPhoto = async (req, res) => {
     if (!updatedUser) {
       return res.status(404).json({ message: "User not found" });
     }
-
+   
     res.status(200).json({
       message: "Photo uploaded successfully",
       photoUrl: updatedUser.photoUrl,

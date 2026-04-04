@@ -20,7 +20,7 @@ const ServiceCard = ({ service, onEdit }) => {
           } text-white px-3 py-1 rounded-md text-sm`}
         >
           {service?.active ? "Enabled" : "Disabled"}
-        </button>
+        </button>   
       </div>
 
       {/* Service Description */}

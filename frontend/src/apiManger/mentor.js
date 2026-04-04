@@ -19,7 +19,7 @@ const getMentorStats = () => {
 
 // Assign the object to a variable
 const mentorAPI = {
-  getAllMentors,
+  getAllMentors,   
   getMentorByUsername,
   deleteMentor,
   getMentorStats,

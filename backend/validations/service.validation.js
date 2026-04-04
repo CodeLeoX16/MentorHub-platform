@@ -19,4 +19,4 @@ const updateServiceSchema = Joi.object({
 module.exports = {
   createServiceSchema,
   updateServiceSchema,
-};
+};  

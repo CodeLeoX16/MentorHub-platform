@@ -52,6 +52,6 @@ router.get(
   "/:mentorId",
   authMiddleware.protect,
   asyncHandler(availabilityController.getNext14DaysAvailability)
-);
+);   
 
 module.exports = router;

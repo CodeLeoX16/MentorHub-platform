@@ -14,7 +14,7 @@ const Schedule = () => {
     friday: [],
     saturday: [],
     sunday: [],
-  });
+  });   
   const [unavailableDates, setUnavailableDates] = useState([]);
   const [loading, setLoading] = useState(false);
   const [hasExisting, setHasExisting] = useState(false);
