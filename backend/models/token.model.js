@@ -17,7 +17,7 @@ const tokenSchema = new mongoose.Schema(
       required: true,
     },
     expires: {
-      type: Date,
+      type: Date,  
       required: true,
     },
     blacklisted: {

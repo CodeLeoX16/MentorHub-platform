@@ -12,5 +12,5 @@ const httpStatus = {
   serviceUnavailable: 503,
 };
 
-module.exports = httpStatus;
+module.exports = httpStatus;   
    

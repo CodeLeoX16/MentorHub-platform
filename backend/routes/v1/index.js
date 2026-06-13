@@ -17,7 +17,7 @@ const adminRoute = require("./admin.route");
 const Routes = [
   {
     path: "/",
-    route: homeRoute,
+    route: homeRoute,   
   },
   {
     path: "/auth",

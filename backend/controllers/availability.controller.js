@@ -8,7 +8,7 @@ const createAvailability = async (req, res, next) => {
 
   const existingAvailability = await availabilityService.getAvailability(
     userId
-  );
+  );   
 
   if (existingAvailability) {
     return next(

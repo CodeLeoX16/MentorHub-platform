@@ -20,7 +20,7 @@ const updateUserProfile = async (id, profileData) => {
   );
 };   
 
-module.exports = {
+module.exports = {   
   getUserById,
   updateUser,
   updateUserPhoto,

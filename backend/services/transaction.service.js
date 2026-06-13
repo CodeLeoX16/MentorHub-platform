@@ -19,7 +19,7 @@ const deleteTransaction = async (id) => {
    
 const queryTransactions = async (filter = {}, options = {}) => {
   const { page = 1, limit = 20 } = options;
-  const skip = (page - 1) * limit;
+  const skip = (page - 1) * limit;   
 
   const docs = await Transaction.find({ ...filter, isDeleted: false })
     .sort({ date: -1 })

@@ -20,7 +20,7 @@ const transactionSchema = new mongoose.Schema(
       required: true,
     },
     notes: {
-      type: String,
+      type: String,  
     },
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,

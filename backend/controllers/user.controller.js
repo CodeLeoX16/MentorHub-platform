@@ -14,7 +14,7 @@ const uploadPhoto = async (req, res) => {
     // Upload image to Cloudinary
     const result = await cloudinary.uploader.upload(req.file.path, {
       folder: "user_photos",
-      use_filename: true,
+      use_filename: true,   
     });
 
     // Update user with new photo URL

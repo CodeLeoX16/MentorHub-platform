@@ -15,7 +15,7 @@ async function getZoomAuthToken() {
           Authorization: `Basic ${auth}`,
         },
       }
-    );
+    );   
 
     return response.data.access_token;
   } catch (error) {

@@ -12,7 +12,7 @@ const getTransactions = async (req, res) => {
   const filter = {};
   if (type) filter.type = type;
   if (category) filter.category = category;
-  if (startDate || endDate) {
+  if (startDate || endDate) {    
     filter.date = {};
     if (startDate) filter.date.$gte = new Date(startDate);
     if (endDate) filter.date.$lte = new Date(endDate);

@@ -17,7 +17,7 @@ const signInValidation = Joi.object().keys({
   email: Joi.string().required().email().trim(),
   password: Joi.string().required(),
 });
-   
+      
 module.exports = {
   signUpValidation,
   signInValidation,

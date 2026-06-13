@@ -13,7 +13,7 @@ module.exports = {
     refreshSecret: process.env.JWT_REFRESH_SECRET || "random-refresh-secret",
     refreshExpirationDays: process.env.JWT_REFRESH_EXPIRATION_DAYS || 30,
   },
-  cloudinary: {
+  cloudinary: {   
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
     api_key: process.env.CLOUDINARY_API_KEY,
     api_secret: process.env.CLOUDINARY_API_SECRET,

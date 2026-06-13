@@ -18,7 +18,7 @@ router.post(
   asyncHandler(serviceController.createService)
 );
 
-router.put(
+router.put(   
   "/:serviceId",
   validate(updateServiceSchema),
   authMiddleware.protect,

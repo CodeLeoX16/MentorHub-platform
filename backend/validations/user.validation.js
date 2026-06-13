@@ -15,6 +15,6 @@ const updateUserProfileValidation = Joi.object({
 });
 
 module.exports = {
-  updateUserProfileValidation,
+  updateUserProfileValidation,   
 };
    

@@ -19,7 +19,7 @@ router.post(
   "/signin",
   validate(signInValidation),
   asyncHandler(authController.signIn)
-);
+);  
 
 router.post("/refresh-token", asyncHandler(authController.refreshToken));
 

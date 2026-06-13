@@ -10,7 +10,7 @@ const sendTestEmail = async (req, res) => {
     return res.status(httpStatus.ok).json({ message: "Test email sent" });
   }
   return res.status(httpStatus.internal).json({ message: "Failed to send test email", error: result.error });
-};
+};   
 
 module.exports = { sendTestEmail };
    

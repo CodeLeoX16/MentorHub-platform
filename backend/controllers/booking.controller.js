@@ -8,7 +8,7 @@ const config = require("../config");
 const zoomService = require("../services/zoom.service");
 const emailService = require("../services/email.service");
 const transactionService = require("../services/transaction.service");
-
+   
 const initiateBookingAndPayment = async (req, res, next) => {
   const { dateAndTime, serviceId } = req.body;
 

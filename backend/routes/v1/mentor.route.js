@@ -19,7 +19,7 @@ router.get(
   protect,
   restrictTo("admin"),
   asyncHandler(mentorController.getMentorStats)
-);
+);   
 
 router.get("/", asyncHandler(mentorController.getAllMentors));
 

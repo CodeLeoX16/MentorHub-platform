@@ -20,7 +20,7 @@ const getServiceByMentor = async (mentorId) => {
 };
 
 const getServiceById = async (serviceId) => {
-  return await ServiceModel.findById(serviceId);
+  return await ServiceModel.findById(serviceId);  
 };
 
 const deleteServiceById = async (serviceId) => {

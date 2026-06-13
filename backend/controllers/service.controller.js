@@ -11,7 +11,7 @@ const createService = async (req, res, next) => {
   const service = await serviceService.createService({
     mentor: mentorId,
     name,
-    description,
+    description,   
     duration,
     price,
   });

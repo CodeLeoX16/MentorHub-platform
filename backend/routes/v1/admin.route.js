@@ -9,4 +9,4 @@ router.get('/counts', protect, restrictTo('admin'), asyncHandler(adminController
 router.get('/bookings', protect, restrictTo('admin'), asyncHandler(adminController.getBookingStats));
 
 module.exports = router;
-   
+     

@@ -16,7 +16,7 @@ router.post(
   validate(createAvailabilityValidation),
   asyncHandler(availabilityController.createAvailability)
 );
-
+   
 router.put(
   "/",
   authMiddleware.protect,

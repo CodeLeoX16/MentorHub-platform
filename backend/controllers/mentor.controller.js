@@ -10,7 +10,7 @@ const getMentorInfoByUsername = async (req, res, next) => {
   if (!mentor) {
     return next(new ApiError(httpStatus.notFound, "Mentor not found"));
   }
-
+   
   const services = await mentorService.getMentorServices(mentor._id);
 
   res.status(httpStatus.ok).json({

@@ -11,7 +11,7 @@ const signUp = async (req, res) => {
     email,
     password,
     username,
-    role,
+    role,      
   });
 
   user.password = undefined;

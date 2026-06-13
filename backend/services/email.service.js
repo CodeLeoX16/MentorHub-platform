@@ -15,7 +15,7 @@ transport
 const sendEmail = async (to, subject, html) => {
   try {
     const msg = { from: config.email.from, to, subject, html };
-    await transport.sendMail(msg);
+    await transport.sendMail(msg);    
     return { success: true };
   } catch (error) {
     console.error("Error sending email:", error && error.stack ? error.stack : error);

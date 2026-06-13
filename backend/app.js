@@ -14,7 +14,7 @@ const path = require("path");
 
 // Middleware to enable CORS (Cross-Origin Resource Sharing)
 app.use(cors());
-
+   
 // Middleware to parse incoming JSON requests
 app.use(express.json());   
 

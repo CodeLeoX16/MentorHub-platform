@@ -134,7 +134,7 @@ const getMentorAvailabilityForNext14Days = async (
           date: currentDate,
           slots: slotsForDay,
         });
-      }   
+      }      
     }
 
     console.log(

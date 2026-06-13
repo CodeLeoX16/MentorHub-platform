@@ -8,7 +8,7 @@ const getCounts = async (req, res, next) => {
   const menteeCount = await UserModel.countDocuments({ role: 'student' });
   const mentorCount = await UserModel.countDocuments({ role: 'mentor' });
   const adminCount = await UserModel.countDocuments({ role: 'admin' });
-
+  
   const totalBookings = await BookingModel.countDocuments();
 
   res.status(httpStatus.ok).json({

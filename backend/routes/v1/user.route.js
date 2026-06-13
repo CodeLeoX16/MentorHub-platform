@@ -21,7 +21,7 @@ router.post(
 
 router.get("/", authMiddleware.protect, asyncHandler(userController.getUser));
 
-router.put(
+router.put(  
   "/update-profile",
   authMiddleware.protect,
   validate(updateUserProfileValidation),

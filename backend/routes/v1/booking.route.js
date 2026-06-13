@@ -17,7 +17,7 @@ router.post(
   auth.protect,
   asyncHandler(bookingController.initiateBookingAndPayment)
 );
-
+   
 router.post(
   "/confirm-booking",
   validate(confirmBookingValidation),

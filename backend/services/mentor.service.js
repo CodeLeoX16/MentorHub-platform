@@ -17,7 +17,7 @@ const getMentorServices = async (id) => {
   return await ServiceModel.find({ mentor: id, active: true });
 };
 
-const deleteMentorById = async (id) => {
+const deleteMentorById = async (id) => {   
   // remove services associated with mentor
   await ServiceModel.deleteMany({ mentor: id });
   // remove the mentor user

@@ -16,7 +16,7 @@ const updateServiceSchema = Joi.object({
   active: Joi.boolean().optional(),
 });
 
-module.exports = {
+module.exports = {   
   createServiceSchema,
   updateServiceSchema,
 };  

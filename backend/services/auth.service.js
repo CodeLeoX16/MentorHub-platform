@@ -13,7 +13,7 @@ const loginUserWithEmailAndPassword = async (email, password) => {
     throw new ApiError(httpStatus.unauthorized, "Incorrect email or password");
   }
 
-  return user;
+  return user;   
 };
 
 module.exports = {

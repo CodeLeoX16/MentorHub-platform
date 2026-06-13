@@ -19,7 +19,7 @@ const saveToken = async (token, userId, expires, type, blacklisted = false) => {
 };
 
 const generateAuthTokens = async (user) => {
-  const accessTokenExpires = moment().add(
+  const accessTokenExpires = moment().add(   
     Number(config.jwt.accessExpirationMinutes),
     "minutes"
   );

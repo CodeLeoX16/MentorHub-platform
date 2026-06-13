@@ -17,7 +17,7 @@ const notFound = (req, res, next) => {
   const error = new ApiError(
     httpStatus.notFound,
     `Not Found - ${req.originalUrl}`
-  );
+  );   
   next(error);
 };
 

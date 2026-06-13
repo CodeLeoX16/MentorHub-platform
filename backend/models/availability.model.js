@@ -19,7 +19,7 @@ const availabilitySchema = new Schema(
           startTime: { type: String },
           endTime: { type: String },
         },
-      ],
+      ],   
       wednesday: [
         {
           startTime: { type: String },

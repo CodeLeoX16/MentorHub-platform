@@ -15,7 +15,7 @@ const serviceSchema = new Schema(
     description: {
       type: Schema.Types.String,
       required: true,
-      trim: true,
+      trim: true,   
     },
     duration: {
       type: Schema.Types.Number,

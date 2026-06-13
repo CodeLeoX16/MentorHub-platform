@@ -18,7 +18,7 @@ const updateBookingById = async (bookingId, bookingData) => {
 };
 
 const getUsersBooking = async (userId) => {
-  return await BookingModel.find({ user: userId });
+  return await BookingModel.find({ user: userId });  
 };
 
 const getMentorBookings = async (mentorId) => {
