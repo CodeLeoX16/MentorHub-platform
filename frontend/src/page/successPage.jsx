@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "../components/Layout";
+import { HiCheckCircle, HiHome, HiArrowRight } from "react-icons/hi2";
 
 const SuccessPage = () => {
-  const [countdown, setCountdown] = useState(10); // Initialize the countdown at 10 seconds
+  const [countdown, setCountdown] = useState(10);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -12,10 +13,10 @@ const SuccessPage = () => {
       setCountdown((prev) => prev - 1);
     }, 1000);
 
-    // If the countdown reaches 0, navigate to the home page (or any other route)
+    // If the countdown reaches 0, navigate to the home page
     if (countdown === 0) {
       navigate("/");
-    }   
+    }
 
     // Clear the interval when the component unmounts
     return () => clearInterval(timer);
@@ -23,30 +24,48 @@ const SuccessPage = () => {
 
   return (
     <Layout>
-      <div className="flex items-center justify-center h-screen bg-gray-100">
-        <div className="p-10 text-center bg-white rounded shadow-lg">
-          <h1 className="text-3xl font-bold text-green-500">Thank You!</h1>
-          <p className="mt-4 text-lg">Your booking has been confirmed.</p>
-          <p className="mt-2 text-gray-600">
-            The meeting link will be shared over your registered email.
-          </p>
-
-          {/* Animation and Countdown */}
-          <div className="mt-8">
-            <div className="text-2xl font-semibold text-blue-500">
-              Redirecting in {countdown} seconds...
-            </div>
-
-            {/* Example of a simple animated circle */}
-            <div className="relative w-16 h-16 mt-4 border-t-4 border-b-4 border-blue-500 rounded-full animate-spin"></div>
+      <div className="flex items-center justify-center min-h-[75vh] px-4 text-center">
+        <div className="max-w-md w-full p-8 sm:p-10 bg-white border border-slate-200/85 rounded-3xl shadow-xl space-y-6">
+          
+          {/* Success Checkmark Icon Badge */}
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-emerald-50 text-emerald-600 mx-auto shadow-inner border border-emerald-100">
+            <HiCheckCircle size={40} />
           </div>
 
+          <div className="space-y-2">
+            <h1 className="text-3xl font-extrabold text-slate-950 tracking-tight">
+              Booking Confirmed!
+            </h1>
+            <p className="text-sm font-medium text-purple-600">
+              Thank you for booking your session.
+            </p>
+            <p className="text-sm text-slate-600 leading-relaxed pt-1">
+              Your meeting link and details have been successfully shared to your registered email address.
+            </p>
+          </div>
+
+          {/* Countdown & Spinner Indicator */}
+          <div className="pt-2 pb-1 space-y-3">
+            <div className="text-xs font-bold uppercase tracking-wider text-slate-400">
+              Redirecting in <span className="text-purple-600 font-extrabold text-sm">{countdown}</span> seconds...
+            </div>
+            
+            {/* Animated Loading Ring */}
+            <div className="flex justify-center">
+              <div className="w-8 h-8 border-3 border-purple-200 border-t-purple-600 rounded-full animate-spin" />
+            </div>
+          </div>
+
+          {/* Action Button */}
           <button
+            type="button"
             onClick={() => navigate("/")}
-            className="px-6 py-2 mt-6 text-white bg-blue-500 rounded hover:bg-blue-400"
+            className="w-full py-3.5 px-6 font-semibold text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 rounded-xl shadow-lg shadow-purple-600/25 hover:brightness-110 active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2"
           >
-            Back to Home
+            <HiHome className="text-lg" />
+            <span>Back to Homepage</span>
           </button>
+
         </div>
       </div>
     </Layout>

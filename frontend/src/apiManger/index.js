@@ -26,6 +26,12 @@ let AxiosInstances; // Declare a variable to hold the axios instance
   AxiosInstances.interceptors.response.use(
     (response) => response, // If the response is successful, return it
     (error) => {
+      const isAuthRequest = error.config?.url?.startsWith("/auth/");
+
+      if (isAuthRequest) {
+        throw error;
+      }
+
       // If the response indicates a failure
       if (error.response?.data.success === "false") {
         const message = error.response.data.message; // Get the error message
@@ -34,7 +40,7 @@ let AxiosInstances; // Declare a variable to hold the axios instance
           // If the error status is 401 (Unauthorized)
           removeToken(); // Remove the token from storage
           sessionStorage.removeItem(USER_STORE_PERSIST); // Remove user data from session storage
-          window.location.href = "/signin"; // Redirect to the signin page
+          window.location.hash = "/signin"; // Redirect inside the client router
         }
       } else {
         toast.error("Something went wrong"); // Display a generic error message

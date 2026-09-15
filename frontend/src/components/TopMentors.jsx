@@ -2,8 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import MentorCard from "./MentorCard";
 import mentorAPI from "../apiManger/mentor";
 import useMentorStore from "../store/mentors";
-import { NavLink } from "react-router-dom";
-import { Button, Spin } from "antd";
+import { Spin } from "antd";
 
 const TopMentors = () => {
   const { setMentorsData } = useMentorStore();
@@ -16,16 +15,15 @@ const TopMentors = () => {
     const totalMentors = mentors.length;
 
     while (selected.length < 4 && selected.length < totalMentors) {
-      const randomIndex = Math.floor(Math.random() * totalMentors); // Get random index
-      const randomMentor = mentors[randomIndex];   
+      const randomIndex = Math.floor(Math.random() * totalMentors);
+      const randomMentor = mentors[randomIndex];
 
-      // Check if the random mentor has already been selected
       if (!selected.includes(randomMentor)) {
-        selected.push(randomMentor); // Add unique mentor
+        selected.push(randomMentor);
       }
     }
 
-    return selected; // Return the selected mentors
+    return selected;
   };
 
   const fetchAllMentors = useCallback(async () => {
@@ -33,9 +31,9 @@ const TopMentors = () => {
     try {
       const response = await mentorAPI.getAllMentors();
       const allMentors = response?.data?.mentors || [];
-      setMentorsData(allMentors); // Store all mentors
+      setMentorsData(allMentors);
 
-      setTopMentors(selectTopMentors(allMentors)); // Set 4 random mentors directly from the API response
+      setTopMentors(selectTopMentors(allMentors));
     } catch (error) {
       console.error("Error fetching mentors:", error);
     } finally {
@@ -48,30 +46,28 @@ const TopMentors = () => {
   }, [fetchAllMentors]);
 
   return (
-    <div className="px-4 py-12 bg-gradient-to-b from-white to-gray-50 sm:px-6 lg:px-10">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="mb-8 text-3xl font-bold text-center text-gray-900">
-          Top Mentors
-        </h2>
-        {loading ? (
-          <div className="flex justify-center my-10">
-            <Spin size="large" />
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {topMentors.map((mentor) => {
-              return <MentorCard mentor={mentor} key={mentor?._id} />;
-            })}
-          </div>
-        )}
-        <div className="mt-8 text-center">
-          <NavLink to="/mentors">
-            <Button type="default" className="text-blue-500 hover:text-blue-700">
-              View All
-            </Button>
-          </NavLink>
+    <div className="w-full">
+      {/* Loading Skeleton State */}
+      {loading ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 my-2">
+          {[1, 2, 3, 4].map((n) => (
+            <div key={n} className="bg-white rounded-2xl border border-slate-200 p-4 h-80 animate-pulse flex flex-col justify-between">
+              <div className="bg-slate-200 h-44 rounded-xl w-full" />
+              <div className="space-y-2 py-2">
+                <div className="bg-slate-200 h-4 rounded w-3/4" />
+                <div className="bg-slate-200 h-3 rounded w-1/2" />
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
+      ) : (
+        /* Mentors Grid */
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {topMentors.map((mentor) => (
+            <MentorCard mentor={mentor} key={mentor?._id} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
