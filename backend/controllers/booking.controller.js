@@ -104,26 +104,38 @@ const confirmBooking = async (req, res, next) => {
     console.error("Failed to create transaction for booking:", err.message || err);
   }
 
-  await emailService.sendConfirmationMail(
-    booking.user.email,
-    booking.user.name,
-    zoomMeeting,
-    moment(booking.dateAndTime).format("DD-MM-YYYY"),
-    moment(booking.dateAndTime).format("HH:mm")
-  );
-
-  // Notify mentor about the confirmed booking (include student & service details)
-  if (booking.mentor && booking.mentor.email) {
-    await emailService.sendMentorNotificationMail(
-      booking.mentor.email,
-      booking.mentor.name || "Mentor",
-      booking.user && booking.user.name ? booking.user.name : "Student",
-      booking.service && booking.service.name ? booking.service.name : "",
+  const emailTasks = [
+    emailService.sendConfirmationMail(
+      booking.user.email,
+      booking.user.name,
       zoomMeeting,
       moment(booking.dateAndTime).format("DD-MM-YYYY"),
       moment(booking.dateAndTime).format("HH:mm")
+    ),
+  ];
+
+  // Email delivery must not delay the payment confirmation response.
+  if (booking.mentor && booking.mentor.email) {
+    emailTasks.push(
+      emailService.sendMentorNotificationMail(
+        booking.mentor.email,
+        booking.mentor.name || "Mentor",
+        booking.user && booking.user.name ? booking.user.name : "Student",
+        booking.service && booking.service.name ? booking.service.name : "",
+        zoomMeeting,
+        moment(booking.dateAndTime).format("DD-MM-YYYY"),
+        moment(booking.dateAndTime).format("HH:mm")
+      )
     );
   }
+
+  Promise.allSettled(emailTasks).then((results) => {
+    results
+      .filter((result) => result.status === "rejected" || result.value?.success === false)
+      .forEach((result) => {
+        console.error("Booking confirmation email failed:", result.reason || result.value?.error);
+      });
+  });
 
   return res.status(httpStatus.ok).json({ success: true, booking: updatedBooking });
 };

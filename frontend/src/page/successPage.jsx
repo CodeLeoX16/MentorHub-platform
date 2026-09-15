@@ -1,26 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "../components/Layout";
-import { HiCheckCircle, HiHome, HiArrowRight } from "react-icons/hi2";
+import { HiCheckCircle, HiHome } from "react-icons/hi2";
 
 const SuccessPage = () => {
-  const [countdown, setCountdown] = useState(10);
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Set up the countdown timer
-    const timer = setInterval(() => {
-      setCountdown((prev) => prev - 1);
-    }, 1000);
-
-    // If the countdown reaches 0, navigate to the home page
-    if (countdown === 0) {
-      navigate("/");
-    }
-
-    // Clear the interval when the component unmounts
-    return () => clearInterval(timer);
-  }, [countdown, navigate]);
+    const timer = setTimeout(() => navigate("/"), 10000);
+    return () => clearTimeout(timer);
+  }, [navigate]);
 
   return (
     <Layout>
@@ -42,18 +31,6 @@ const SuccessPage = () => {
             <p className="text-sm text-slate-600 leading-relaxed pt-1">
               Your meeting link and details have been successfully shared to your registered email address.
             </p>
-          </div>
-
-          {/* Countdown & Spinner Indicator */}
-          <div className="pt-2 pb-1 space-y-3">
-            <div className="text-xs font-bold uppercase tracking-wider text-slate-400">
-              Redirecting in <span className="text-purple-600 font-extrabold text-sm">{countdown}</span> seconds...
-            </div>
-            
-            {/* Animated Loading Ring */}
-            <div className="flex justify-center">
-              <div className="w-8 h-8 border-3 border-purple-200 border-t-purple-600 rounded-full animate-spin" />
-            </div>
           </div>
 
           {/* Action Button */}
